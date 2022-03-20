@@ -1,0 +1,243 @@
+openapi: 3.0.1
+info:
+  title: backend
+  description: My cool app
+  version: 1.0.0
+servers:
+  - url: /api/v1
+tags:
+  - name: Backend
+    description: Backend endpoints
+  - name: Specification
+    description: The swagger API specification
+paths:
+
+  /compte:
+    get:
+      tags:
+        - compte
+      description: trouver tous les comptes
+      responses:
+        200:
+          description: trouver tous les comptes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Compte'
+        4XX:
+          description: Compte not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Compte not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - compte
+      description: Create a new Compte
+      requestBody:
+        description: an Compte
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Compte'
+        required: true
+      responses:
+        201:
+          description: Return the Compte with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compte'
+        4XX:
+          description: Compte not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Compte not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /compte/{id}:
+    get:
+      tags:
+        - compte
+      parameters:
+        - name: id
+          in: path
+          description: The id of the Compte to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the Compte with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Compte'
+        4XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
+
+
+
+
+
+
+  /employee:
+    get:
+      tags:
+        - employee
+      description: trouver tous les employee
+      responses:
+        200:
+          description: trouver tous les employee
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/employee'
+        4XX:
+          description: employee not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: employee not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - employee
+      description: Create a new employee
+      requestBody:
+        description: an employee
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/employee'
+        required: true
+      responses:
+        201:
+          description: Return the employee with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/employee'
+        4XX:
+          description: employee not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: employee not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /employee/{id}:
+    get:
+      tags:
+        - employee
+      parameters:
+        - name: id
+          in: path
+          description: The id of the employee to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the employee with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/employee'
+        4XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
+
+
+
+
+  /spec:
+    get:
+      tags:
+        - Specification
+      responses:
+        200:
+          description: Return the API specification
+          content: {}
+
+
+
+
+
+
+components:
+  schemas:
+    Compte:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1222
+        email:
+          type: string
+          example: aaaaa@gmail.com
+        phone:
+          type: string
+          example: "+21621556"
+        password:
+          type: string
+          example: a123s1
+    employee:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1222
+        nom:
+          type: string
+          example: foulen
+    Error:
+      type: object
+      additionalProperties: true
