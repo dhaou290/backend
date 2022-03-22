@@ -15,8 +15,8 @@ export class Controller {
   create(req, res) {
     ProduitService.create(
       req.body.nom,
-      req.body.elabelle,
-      req.body.qantite,
+      req.body.labelle,
+      req.body.quantite,
       req.body.codeEAN,
       req.body.notre_prix
     ).then((r) =>
