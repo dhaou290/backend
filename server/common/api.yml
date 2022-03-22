@@ -12,6 +12,12 @@ tags:
     description: The swagger API specification
 paths:
 
+
+
+
+
+
+
   /compte:
     get:
       tags:
@@ -196,6 +202,94 @@ paths:
 
 
 
+  /produit:
+    get:
+      tags:
+        - produit
+      description: trouver tous les produit
+      responses:
+        200:
+          description: trouver tous les produit
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/produit'
+        4XX:
+          description: produit not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: produit not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - produit
+      description: Create a new produit
+      requestBody:
+        description: an produit
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/produit'
+        required: true
+      responses:
+        201:
+          description: Return the produit with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/produit'
+        4XX:
+          description: produit not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: produit not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /produit/{id}:
+    get:
+      tags:
+        - produit
+      parameters:
+        - name: id
+          in: path
+          description: The id of the produit to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the produit with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/produit'
+        4XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
 
 
   /spec:
@@ -214,6 +308,8 @@ paths:
 
 components:
   schemas:
+
+
     Compte:
       type: object
       properties:
@@ -229,6 +325,8 @@ components:
         password:
           type: string
           example: a123s1
+
+
     employee:
       type: object
       properties:
@@ -238,6 +336,30 @@ components:
         nom:
           type: string
           example: foulen
+
+
+    produit:
+      type: object
+      properties:
+        nom:
+          type: string
+          example: dhaou
+        quantite:
+          type: number
+          example: 521
+        codeEAN:
+          type: number
+          example: 35553
+        labelle:
+          type: string
+          example: labelle
+        notre_prix:
+          type: number
+          example: 9887
+
+
+
+
     Error:
       type: object
       additionalProperties: true
