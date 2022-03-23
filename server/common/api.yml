@@ -341,6 +341,9 @@ components:
     produit:
       type: object
       properties:
+        id:
+          type: number
+          example: 8524
         nom:
           type: string
           example: dhaou
