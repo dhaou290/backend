@@ -305,6 +305,215 @@ paths:
 
 
 
+  /utilisateur:
+    get:
+      tags:
+        - utilisateur
+      description: trouver tous les utilisateur
+      responses:
+        200:
+          description: trouver tous les utilisateur
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/utilisateur'
+        4XX:
+          description: utilisateur not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: utilisateur not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - utilisateur
+      description: Create a new utilisateur
+      requestBody:
+        description: an utilisateur
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/utilisateur'
+        required: true
+      responses:
+        201:
+          description: Return the utilisateur with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/utilisateur'
+        4XX:
+          description: utilisateur not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: utilisateur not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /utilisateur/{id}:
+    get:
+      tags:
+        - utilisateur
+      parameters:
+        - name: id
+          in: path
+          description: The id of the utilisateur to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the utilisateur with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/utilisateur'
+        4XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
+
+  
+/spec:
+    get:
+      tags:
+        - Specification
+      responses:
+        200:
+          description: Return the API specification
+          content: {}
+
+
+
+
+
+/magasin:
+    get:
+      tags:
+        - magasin
+      description: trouver tous les magasin
+      responses:
+        200:
+          description: trouver tous les magasin
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/magasin'
+        4XX:
+          description: magasin not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: magasin not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - magasin
+      description: Create a new magasin
+      requestBody:
+        description: an magasin
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/magasin'
+        required: true
+      responses:
+        201:
+          description: Return the magasin with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/magasin'
+        4XX:
+          description: magasin not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: magasin not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  
+/magasin/{id}:
+    get:
+      tags:
+        - magasin
+      parameters:
+        - name: id
+          in: path
+          description: The id of the magasin to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the magasin with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/magasin'
+        4XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
+
+  
+/spec:
+    get:
+      tags:
+        - Specification
+      responses:
+        200:
+          description: Return the API specification
+          content: {}
+
+
+
+ 
+
+
+
 
 components:
   schemas:
@@ -360,6 +569,39 @@ components:
           type: number
           example: 9887
 
+
+
+
+
+    utilisateur:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 741258
+        nom:
+          type: string
+          example: dhaouu
+        quantite:
+          type: string
+          example: Amri
+
+
+
+
+    magasin:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 746681
+        nom_magasin:
+          type: string
+          example: aziza
+        lieu_magasin:
+          type: string
+          example: sousse
+        
 
 
 
