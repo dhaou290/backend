@@ -398,7 +398,7 @@ paths:
 
 
 
-/magasin:
+  /magasin:
     get:
       tags:
         - magasin
@@ -455,7 +455,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
   
-    /magasin/{id}:
+  /magasin/{id}:
       get:
         tags:
           - magasin
