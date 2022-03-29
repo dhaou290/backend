@@ -289,22 +289,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-
-
-
-  /spec:
-    get:
-      tags:
-        - Specification
-      responses:
-        200:
-          description: Return the API specification
-          content: {}
-
-
-
-
-
   /utilisateur:
     get:
       tags:
@@ -466,32 +450,32 @@ paths:
             required: true
             schema:
               type: integer
-      responses:
-        200:
-          description: Return the magasin with the specified id
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/magasin'
-        4XX:
-          description: Example not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        5XX:
-          description: Example not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+        responses:
+          200:
+            description: Return the magasin with the specified id
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/magasin'
+          4XX:
+            description: Example not found
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Error'
+          5XX:
+            description: Example not found
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Error'
 
 
 
-    /spec:
-      get:
-        tags:
-          - Specification
+  /spec:
+    get:
+      tags:
+        - Specification
       responses:
         200:
           description: Return the API specification
