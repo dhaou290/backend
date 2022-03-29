@@ -395,14 +395,14 @@ paths:
 
 
   
-/spec:
-    get:
-      tags:
-        - Specification
-      responses:
-        200:
-          description: Return the API specification
-          content: {}
+    /spec:
+      get:
+        tags:
+          - Specification
+        responses:
+          200:
+            description: Return the API specification
+            content: {}
 
 
 
@@ -465,17 +465,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
   
-/magasin/{id}:
-    get:
-      tags:
-        - magasin
-      parameters:
-        - name: id
-          in: path
-          description: The id of the magasin to retrieve
-          required: true
-          schema:
-            type: integer
+    /magasin/{id}:
+      get:
+        tags:
+          - magasin
+        parameters:
+          - name: id
+            in: path
+            description: The id of the magasin to retrieve
+            required: true
+            schema:
+              type: integer
       responses:
         200:
           description: Return the magasin with the specified id
@@ -498,11 +498,10 @@ paths:
 
 
 
-  
-/spec:
-    get:
-      tags:
-        - Specification
+    /spec:
+      get:
+        tags:
+          - Specification
       responses:
         200:
           description: Return the API specification
