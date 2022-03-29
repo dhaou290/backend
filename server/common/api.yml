@@ -395,14 +395,7 @@ paths:
 
 
   
-    /spec:
-      get:
-        tags:
-          - Specification
-        responses:
-          200:
-            description: Return the API specification
-            content: {}
+    
 
 
 
