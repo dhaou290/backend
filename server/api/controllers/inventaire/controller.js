@@ -2,7 +2,7 @@ import InventaireService from '../../services/inventaire.service';
 
 export class Controller {
   all(req, res) {
-    CompteService.all().then((r) => res.json(r.rows));
+    InventaireService.all().then((r) => res.json(r.rows));
   }
 
   byId(req, res) {
@@ -13,11 +13,8 @@ export class Controller {
   }
 
   create(req, res) {
-    InventaireService.create(
-      req.body.id,
-      req.body.id_inventaire
-    ).then((r) =>
-      res.status(201).location(`/api/v1/inventaire/${r.id}`).json(r.rowCount)
+    InventaireService.create(req.body.id, req.body.id_inventaire).then((r) =>
+      res.status(201).json(r.rowCount)
     );
   }
 }

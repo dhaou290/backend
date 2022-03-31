@@ -20,9 +20,7 @@ export class Controller {
       req.body.quantite,
       req.body.codeEAN,
       req.body.notre_prix
-    ).then((r) =>
-      res.status(201).json(r.rowCount)
-    );
+    ).then((r) => res.status(201).json(r.rowCount));
   }
 }
 export default new Controller();

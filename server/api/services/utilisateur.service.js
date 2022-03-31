@@ -9,7 +9,7 @@ class UtilisateurService {
     return client.query('SELECT * FROM utilisateur where id=' + id + ';');
   }
 
-  create(id, nom ,prenom) {
+  create(id, nom, prenom) {
     return client.query(
       "INSERT INTO utilisateur (id, nom, prenom) VALUES ('" +
         id +
@@ -17,7 +17,7 @@ class UtilisateurService {
         nom +
         "', '" +
         prenom +
-        ");"
+        "');"
     );
   }
 }

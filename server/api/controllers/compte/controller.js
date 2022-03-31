@@ -18,9 +18,7 @@ export class Controller {
       req.body.email,
       req.body.phone,
       req.body.password
-    ).then((r) =>
-      res.status(201).location(`/api/v1/compte/${r.id}`).json(r.rowCount)
-    );
+    ).then((r) => res.status(201).json(r.rowCount));
   }
 }
 export default new Controller();

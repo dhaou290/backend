@@ -13,12 +13,10 @@ export class Controller {
   }
 
   create(req, res) {
-    UtilisateurService.create(
-      req.body.id,
-      req.body.nom,
-      req.body.prenom
-    ).then((r) =>
-      res.status(201).json(r.rowCount)
+    UtilisateurService.create(req.body.id, req.body.nom, req.body.prenom).then(
+      (r) => {
+        res.status(201).json(r.rowCount);
+      }
     );
   }
 }

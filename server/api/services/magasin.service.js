@@ -9,9 +9,15 @@ class MagasinService {
     return client.query('SELECT * FROM magasin where id=' + id + ';');
   }
 
-  create(id, nom_magasin, lieu_magasin)  {
+  create(id, nom_magasin, lieu_magasin) {
     return client.query(
-      "INSERT INTO magasin (id, nom_magasin, lieu_magasin) VALUES ('" + id + "', '" + nom_magasin + "', '" + lieu_magasin + "');"
+      "INSERT INTO magasin (id, nom_magasin, lieu_magasin) VALUES ('" +
+        id +
+        "', '" +
+        nom_magasin +
+        "', '" +
+        lieu_magasin +
+        "');"
     );
   }
 }

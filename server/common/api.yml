@@ -478,7 +478,7 @@ paths:
   /date:
     get:
       tags:
-        - compte
+        - date
       description: trouver tous les date
       responses:
         200:
@@ -526,7 +526,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
         5XX:
-          description:date not found
+          description: date not found
           content:
             application/json:
               schema:
@@ -570,7 +570,7 @@ paths:
   /date_action:
     get:
       tags:
-        - compte
+        - date_action
       description: trouver tous les date_action
       responses:
         200:
@@ -618,7 +618,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
         5XX:
-          description:date_action not found
+          description: date_action not found
           content:
             application/json:
               schema:
@@ -658,7 +658,7 @@ paths:
 
 
  
-/inventaire_action:
+  /inventaire_action:
     get:
       tags:
         - inventaire_action
@@ -831,7 +831,7 @@ components:
         nom:
           type: string
           example: dhaouu
-        quantite:
+        prenom:
           type: string
           example: Amri
 
@@ -861,10 +861,10 @@ components:
           example: 88888
         heure:
           type: number
-          example: 13:43
+          example: 1343
         jour:
           type: number
-          example: "31"
+          example: 31
         mois:
           type: number
           example: 03         
@@ -883,10 +883,10 @@ components:
           example: 758412
         heure:
           type: number
-          example: 15:09
+          example: 1509
         jour:
           type: number
-          example: "01"
+          example: 01
         mois:
           type: number
           example: 04         

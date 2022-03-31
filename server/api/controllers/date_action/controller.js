@@ -19,9 +19,7 @@ export class Controller {
       req.body.jour,
       req.body.mois,
       req.body.année
-    ).then((r) =>
-      res.status(201).location(`/api/v1/compte/${r.id}`).json(r.rowCount)
-    );
+    ).then((r) => res.status(201).json(r.rowCount));
   }
 }
 export default new Controller();

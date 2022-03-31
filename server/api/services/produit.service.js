@@ -19,11 +19,11 @@ class ProduitService {
         labelle +
         "', " +
         quantite +
-        ", " +
+        ', ' +
         codeEAN +
-        ", " +
+        ', ' +
         notre_prix +
-        ");"
+        ');'
     );
   }
 }

@@ -17,9 +17,7 @@ export class Controller {
       req.body.id,
       req.body.lieu,
       req.body.magasin
-    ).then((r) =>
-      res.status(201).location(`/api/v1/inventaire_action/${r.id}`).json(r.rowCount)
-    );
+    ).then((r) => res.status(201).json(r.rowCount));
   }
 }
 export default new Controller();
