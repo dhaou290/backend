@@ -474,7 +474,292 @@ paths:
 
 
 
+
+  /date:
+    get:
+      tags:
+        - compte
+      description: trouver tous les date
+      responses:
+        200:
+          description: trouver tous les date
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/date'
+        4XX:
+          description: date not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Compte not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - date
+      description: Create a new date
+      requestBody:
+        description: an Compte
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/date'
+        required: true
+      responses:
+        201:
+          description: Return the Compte with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/date'
+        4XX:
+          description: date not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description:date not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /date/{id}:
+    get:
+      tags:
+        - date
+      parameters:
+        - name: id
+          in: path
+          description: The id of the date to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the date with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/date'
+        4XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
+
+
+
+
+  /date_action:
+    get:
+      tags:
+        - compte
+      description: trouver tous les date_action
+      responses:
+        200:
+          description: trouver tous les date_action
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/date_action'
+        4XX:
+          description: date_action not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Compte not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - date_action
+      description: Create a new date_action
+      requestBody:
+        description: an Compte
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/date_action'
+        required: true
+      responses:
+        201:
+          description: Return the Compte with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/date_action'
+        4XX:
+          description: date not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description:date_action not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /date_action/{id}:
+    get:
+      tags:
+        - date_action
+      parameters:
+        - name: id
+          in: path
+          description: The id of the date_action to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the date_action with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/date_action'
+        4XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
+
+
  
+/inventaire_action:
+    get:
+      tags:
+        - inventaire_action
+      description: trouver tous les inventaire_action
+      responses:
+        200:
+          description: trouver tous les inventaire_action
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/inventaire_action'
+        4XX:
+          description: inventaire_action not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: inventaire_action not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - inventaire_action
+      description: Create a new inventaire_action
+      requestBody:
+        description: an inventaire_action
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/inventaire_action'
+        required: true
+      responses:
+        201:
+          description: Return the inventaire_action with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inventaire_action'
+        4XX:
+          description: inventaire_action not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: inventaire_action not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /inventaire_action/{id}:
+    get:
+      tags:
+        - inventaire_action
+      parameters:
+        - name: id
+          in: path
+          description: The id of the inventaire_action to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the inventaire_action with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inventaire_action'
+        4XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
+
+
+
+  /spec:
+    get:
+      tags:
+        - Specification
+      responses:
+        200:
+          description: Return the API specification
+          content: {}
+
+
+
 
 
 
@@ -565,10 +850,77 @@ components:
         lieu_magasin:
           type: string
           example: sousse
-        
 
 
 
+    date:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 88888
+        heure:
+          type: number
+          example: 13:43
+        jour:
+          type: number
+          example: "31"
+        mois:
+          type: number
+          example: 03         
+        année:
+          type: number
+          example: 2022 
+
+
+
+
+    date_action:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 758412
+        heure:
+          type: number
+          example: 15:09
+        jour:
+          type: number
+          example: "01"
+        mois:
+          type: number
+          example: 04         
+        année:
+          type: number
+          example: 2021                
+
+
+
+
+    inventaire:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 746681
+        id_inventaire:
+          type: number
+          example: 741258  
+
+
+
+    inventaire_action:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 852369
+        lieu:
+          type: string
+          example: monastir
+        magasin:
+          type: string
+          example: mg
     Error:
       type: object
       additionalProperties: true
