@@ -657,7 +657,94 @@ paths:
 
 
 
- 
+
+  /inventaire:
+    get:
+      tags:
+        - inventaire
+      description: trouver tous les inventaire
+      responses:
+        200:
+          description: trouver tous les inventaire
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/inventaire'
+        4XX:
+          description: inventaire not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: inventaire not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - inventaire
+      description: Create a new inventaire
+      requestBody:
+        description: an inventaire
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/inventaire'
+        required: true
+      responses:
+        201:
+          description: Return the inventaire with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inventaire'
+        4XX:
+          description: inventaire not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: inventaire not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /inventaire/{id}:
+    get:
+      tags:
+        - inventaire
+      parameters:
+        - name: id
+          in: path
+          description: The id of the inventaire to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the inventaire with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inventaire'
+        4XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /inventaire_action:
     get:
       tags:
@@ -921,6 +1008,28 @@ components:
         magasin:
           type: string
           example: mg
+
+
+
+    historique:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 014258
+        type_inventaire:
+          type: string
+          example: aaaa
+        lieu_inventaire:
+          type: string
+          example: bbbb
+        date_inventer:
+          type: number
+          example: 2021         
+        quantite:
+          type: number
+          example: 966336
+
     Error:
       type: object
       additionalProperties: true
