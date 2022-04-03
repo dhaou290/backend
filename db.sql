@@ -1,13 +1,5 @@
 
-CREATE TABLE public.comptes (
-    id numeric NOT NULL,
-    phone character varying,
-    email character varying,
-    password character varying
-);
 
-
-ALTER TABLE public.comptes OWNER TO postgres;
 
 --
 -- TOC entry 205 (class 1259 OID 16455)
@@ -46,13 +38,7 @@ ALTER TABLE public.date_action OWNER TO postgres;
 -- Name: employee; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.employee (
-    id numeric NOT NULL,
-    nom character varying
-);
 
-
-ALTER TABLE public.employee OWNER TO postgres;
 
 --
 -- TOC entry 209 (class 1259 OID 16480)
@@ -148,14 +134,6 @@ ALTER TABLE public.utilisateur OWNER TO postgres;
 -- Data for Name: comptes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.comptes VALUES (125532, '+21621556', 'aaaaa@gmail.com', 'a123s1');
-INSERT INTO public.comptes VALUES (123722, '+21621556', 'aaaaa@gmail.com', 'a123s1');
-INSERT INTO public.comptes VALUES (1333333, '+21621556', 'aaaaa@gmail.com', 'a123s1');
-INSERT INTO public.comptes VALUES (1222222222, '+21621556', 'aaaaa@gmail.com', 'a123s1');
-INSERT INTO public.comptes VALUES (1222222222222222300, '+21621556', 'aaaaa@gmail.com', 'a123s1');
-INSERT INTO public.comptes VALUES (1222222222222222300, '+21621556', 'aaaaa@gmail.com', 'a123s1');
-INSERT INTO public.comptes VALUES (1222, '+21621556', 'aaaaa@gmail.com', 'a123s1');
-
 
 --
 -- TOC entry 3032 (class 0 OID 16455)
@@ -182,12 +160,7 @@ INSERT INTO public.date_action VALUES (758412, 1509, 1, 4, 2021);
 -- Data for Name: employee; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.employee VALUES (12445, 'foulen');
-INSERT INTO public.employee VALUES (1295, 'foulen');
-INSERT INTO public.employee VALUES (12958, 'foulen');
-INSERT INTO public.employee VALUES (1222222, 'foulen');
-INSERT INTO public.employee VALUES (1222222, 'foulen');
-INSERT INTO public.employee VALUES (1222, 'foulen');
+
 
 
 --
