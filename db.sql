@@ -5,7 +5,7 @@
 -- Dumped from database version 13.5 (Debian 13.5-0+deb11u1)
 -- Dumped by pg_dump version 13.3
 
--- Started on 2022-03-31 17:31:23
+-- Started on 2022-04-03 14:34:19
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -18,9 +18,43 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+--
+-- TOC entry 3 (class 2615 OID 2200)
+-- Name: public; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+CREATE SCHEMA public;
+
+
+ALTER SCHEMA public OWNER TO postgres;
+
+--
+-- TOC entry 3042 (class 0 OID 0)
+-- Dependencies: 3
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON SCHEMA public IS 'standard public schema';
+
+
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
+
+--
+-- TOC entry 200 (class 1259 OID 16385)
+-- Name: comptes; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.comptes (
+    id numeric NOT NULL,
+    phone character varying,
+    email character varying,
+    password character varying
+);
+
+
+ALTER TABLE public.comptes OWNER TO postgres;
 
 --
 -- TOC entry 205 (class 1259 OID 16455)
@@ -55,13 +89,42 @@ CREATE TABLE public.date_action (
 ALTER TABLE public.date_action OWNER TO postgres;
 
 --
+-- TOC entry 201 (class 1259 OID 16388)
+-- Name: employee; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.employee (
+    id numeric NOT NULL,
+    nom character varying
+);
+
+
+ALTER TABLE public.employee OWNER TO postgres;
+
+--
+-- TOC entry 209 (class 1259 OID 16480)
+-- Name: historique; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.historique (
+    id numeric,
+    type_inventaire character varying,
+    lieu_inventaire character varying,
+    date_inventaire numeric,
+    quantite numeric
+);
+
+
+ALTER TABLE public.historique OWNER TO postgres;
+
+--
 -- TOC entry 208 (class 1259 OID 16470)
 -- Name: inventaire; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.inventaire (
-    "‪id" numeric,
-    id_inventaire numeric
+    id_inventaire numeric,
+    id numeric
 );
 
 
@@ -127,64 +190,112 @@ CREATE TABLE public.utilisateur (
 ALTER TABLE public.utilisateur OWNER TO postgres;
 
 --
--- TOC entry 3016 (class 0 OID 16455)
+-- TOC entry 3027 (class 0 OID 16385)
+-- Dependencies: 200
+-- Data for Name: comptes; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.comptes VALUES (125532, '+21621556', 'aaaaa@gmail.com', 'a123s1');
+INSERT INTO public.comptes VALUES (123722, '+21621556', 'aaaaa@gmail.com', 'a123s1');
+INSERT INTO public.comptes VALUES (1333333, '+21621556', 'aaaaa@gmail.com', 'a123s1');
+INSERT INTO public.comptes VALUES (1222222222, '+21621556', 'aaaaa@gmail.com', 'a123s1');
+INSERT INTO public.comptes VALUES (1222222222222222300, '+21621556', 'aaaaa@gmail.com', 'a123s1');
+INSERT INTO public.comptes VALUES (1222222222222222300, '+21621556', 'aaaaa@gmail.com', 'a123s1');
+INSERT INTO public.comptes VALUES (1222, '+21621556', 'aaaaa@gmail.com', 'a123s1');
+
+
+--
+-- TOC entry 3032 (class 0 OID 16455)
 -- Dependencies: 205
 -- Data for Name: date; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.date VALUES (88888, 1343, 31, 3, 2022);
+INSERT INTO public.date VALUES (88888, 1343, 31, 3, 2022);
 
 
 --
--- TOC entry 3017 (class 0 OID 16461)
+-- TOC entry 3033 (class 0 OID 16461)
 -- Dependencies: 206
 -- Data for Name: date_action; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.date_action VALUES (758412, 1509, 1, 4, 2021);
 
 
 --
--- TOC entry 3019 (class 0 OID 16470)
+-- TOC entry 3028 (class 0 OID 16388)
+-- Dependencies: 201
+-- Data for Name: employee; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.employee VALUES (12445, 'foulen');
+INSERT INTO public.employee VALUES (1295, 'foulen');
+INSERT INTO public.employee VALUES (12958, 'foulen');
+INSERT INTO public.employee VALUES (1222222, 'foulen');
+INSERT INTO public.employee VALUES (1222222, 'foulen');
+INSERT INTO public.employee VALUES (1222, 'foulen');
+
+
+--
+-- TOC entry 3036 (class 0 OID 16480)
+-- Dependencies: 209
+-- Data for Name: historique; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.historique VALUES (14258, 'aaaa', 'bbbb', 2021, 966336);
+
+
+--
+-- TOC entry 3035 (class 0 OID 16470)
 -- Dependencies: 208
 -- Data for Name: inventaire; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.inventaire VALUES (11, NULL);
+INSERT INTO public.inventaire VALUES (741258, 746681);
 
 
 --
--- TOC entry 3018 (class 0 OID 16467)
+-- TOC entry 3034 (class 0 OID 16467)
 -- Dependencies: 207
 -- Data for Name: inventaire_action; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.inventaire_action VALUES (852369, 'monastir', 'mg');
+INSERT INTO public.inventaire_action VALUES (852369, 'monastir', 'mg');
 
 
 --
--- TOC entry 3015 (class 0 OID 16449)
+-- TOC entry 3031 (class 0 OID 16449)
 -- Dependencies: 204
 -- Data for Name: magasin; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.magasin VALUES ('aziza', 'sousse', 746681);
 
 
 --
--- TOC entry 3013 (class 0 OID 16419)
+-- TOC entry 3029 (class 0 OID 16419)
 -- Dependencies: 202
 -- Data for Name: produit; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO public.produit VALUES ('dhaou', 'labelle', 521, 35553, 9887, NULL);
 INSERT INTO public.produit VALUES ('dhaou', 'labelle', 521, 35553, 9887, 8524);
+INSERT INTO public.produit VALUES ('dhaou', 'labelle', 521, 35553, 9887, 8524);
 
 
 --
--- TOC entry 3014 (class 0 OID 16443)
+-- TOC entry 3030 (class 0 OID 16443)
 -- Dependencies: 203
 -- Data for Name: utilisateur; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.utilisateur VALUES (741258, 'dhaouu', 'Amri');
 
 
--- Completed on 2022-03-31 17:31:26
+-- Completed on 2022-04-03 14:34:26
 
 --
 -- PostgreSQL database dump complete
