@@ -836,6 +836,95 @@ paths:
 
 
 
+  /historique:
+    get:
+      tags:
+        - historique
+      description: trouver tous les historique
+      responses:
+        200:
+          description: trouver tous les historique
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/historique'
+        4XX:
+          description: historique not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: historique not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - historique
+      description: Create a new historique
+      requestBody:
+        description: an historique
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/historique'
+        required: true
+      responses:
+        201:
+          description: Return the historique with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/historique'
+        4XX:
+          description: historique not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: historique not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /historique/{id}:
+    get:
+      tags:
+        - historique
+      parameters:
+        - name: id
+          in: path
+          description: The id of the historique to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the historique with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/historique'
+        4XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
+
   /spec:
     get:
       tags:
@@ -1016,14 +1105,14 @@ components:
       properties:
         id:
           type: number
-          example: 014258
+          example: 14258
         type_inventaire:
           type: string
           example: aaaa
         lieu_inventaire:
           type: string
           example: bbbb
-        date_inventer:
+        date_inventaire:
           type: number
           example: 2021         
         quantite:
