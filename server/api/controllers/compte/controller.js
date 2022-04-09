@@ -21,10 +21,9 @@ export class Controller {
     ).then((r) => res.status(201).json(r.rowCount));
   }
   login(req, res) {
-    CompteService.login(
-      req.body.email,
-      req.body.password
-    ).then((r) => res.status(200).json(r.rowCount));
+    CompteService.login(req.body.email, req.body.password).then((r) =>
+      res.status(200).json(r.rowCount > 0)
+    );
   }
 }
 export default new Controller();

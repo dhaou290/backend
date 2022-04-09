@@ -6,7 +6,9 @@ class Inventaire_produitService {
   }
 
   byId(id) {
-    return client.query('SELECT * FROM inventaire_produit where id=' + id + ';');
+    return client.query(
+      'SELECT * FROM inventaire_produit where id=' + id + ';'
+    );
   }
 
   create(id, date, lieu, nom_du_magasin, ean, libellé_du_produit, quantite) {

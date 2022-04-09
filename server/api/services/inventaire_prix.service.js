@@ -9,7 +9,7 @@ class Inventaire_prixService {
     return client.query('SELECT * FROM Inventaire_prix where id=' + id + ';');
   }
 
-  create(id, date, lieu, nom_du_magasin, ocr ) {
+  create(id, date, lieu, nom_du_magasin, ocr) {
     return client.query(
       "INSERT INTO Inventaire_prix (id, date, lieu, nom_du_magasin, ocr) VALUES ('" +
         id +

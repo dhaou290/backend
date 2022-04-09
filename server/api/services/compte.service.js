@@ -24,7 +24,11 @@ class CompteService {
   }
   login(email, password) {
     return client.query(
-      'SELECT * FROM comptes where email=' + email + ' AND passwrod=' + password +';'
+      "SELECT * FROM comptes where email='" +
+        email +
+        "' AND password='" +
+        password +
+        "';"
     );
   }
 }
