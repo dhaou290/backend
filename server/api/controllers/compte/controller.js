@@ -20,5 +20,11 @@ export class Controller {
       req.body.password
     ).then((r) => res.status(201).json(r.rowCount));
   }
+  login(req, res) {
+    CompteService.login(
+      req.body.email,
+      req.body.password
+    ).then((r) => res.status(200).json(r.rowCount));
+  }
 }
 export default new Controller();

@@ -8,6 +8,7 @@ import date_actionRouter from './api/controllers/date_action/router';
 import inventaireRouter from './api/controllers/inventaire/router';
 import inventaire_actionRouter from './api/controllers/inventaire_action/router';
 import historiqueRouter from './api/controllers/historique/router';
+import inventaire_produitRouter from './api/controllers/inventaire_produit/router';
 
 export default function routes(app) {
   app.use('/api/v1/compte', compteRouter);
@@ -20,4 +21,5 @@ export default function routes(app) {
   app.use('/api/v1/inventaire', inventaireRouter);
   app.use('/api/v1/inventaire_action', inventaire_actionRouter);
   app.use('/api/v1/historique', historiqueRouter);
+  app.use('/api/v1/inventaire_produite', inventaire_produitRouter);
 }

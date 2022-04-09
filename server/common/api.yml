@@ -74,6 +74,38 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+
+  /compte/login:
+    post:
+      tags:
+        - compte
+      description: Create a new login
+      requestBody:
+        description: an login
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/login'
+        required: true
+      responses:
+        201:
+          description: Return the login with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/login'
+        4XX:
+          description: login not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: login not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /compte/{id}:
     get:
       tags:
@@ -925,6 +957,96 @@ paths:
 
 
 
+
+
+  /inventaire_produit:
+    get:
+      tags:
+        - inventaire_produit
+      description: trouver tous les inventaire_produit
+      responses:
+        200:
+          description: trouver tous les inventaire_produit
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/inventaire_produit'
+        4XX:
+          description: inventaire_produit not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: inventaire_produit not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - inventaire_produit
+      description: Create a new inventaire_produit
+      requestBody:
+        description: an inventaire_produit
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/inventaire_produit'
+        required: true
+      responses:
+        201:
+          description: Return the inventaire_produit with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inventaire_produit'
+        4XX:
+          description: inventaire_produit not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: inventaire_produit not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /inventaire_produit/{id}:
+    get:
+      tags:
+        - inventaire_produit
+      parameters:
+        - name: id
+          in: path
+          description: The id of the inventaire_produit to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the inventaire_produit with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inventaire_produit'
+        4XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
   /spec:
     get:
       tags:
@@ -949,7 +1071,7 @@ components:
       properties:
         id:
           type: number
-          example: 1222
+          example: 12225
         email:
           type: string
           example: aaaaa@gmail.com
@@ -959,6 +1081,18 @@ components:
         password:
           type: string
           example: a123s1
+
+
+
+    login:
+      type: object
+      properties:
+        email:
+          type: string
+          example: email
+        password:
+          type: string
+          example: mdp          
 
 
     employee:
@@ -1118,6 +1252,36 @@ components:
         quantite:
           type: number
           example: 966336
+
+
+
+
+    inventaire_produit:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 87240
+        date:
+          type: string
+          example: 09/04/2022
+        lieu:
+          type: string
+          example: 521
+        nom_du_produit:
+          type: string
+          example: aaaaaaaa
+        ean:
+          type: string
+          example: ean
+        libelle_du_produit:
+          type: string
+          example: libellé
+        quantite:
+          type: string
+          example: libellé
+
+          
 
     Error:
       type: object
