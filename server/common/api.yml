@@ -1255,7 +1255,6 @@ components:
     inventaire_produit:
       type: object
       properties:
-        id:
         date:
           type: string
           example: 09/04/2022
