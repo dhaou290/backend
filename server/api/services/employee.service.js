@@ -14,6 +14,16 @@ class EmployeeService {
       "INSERT INTO employee (id, nom) VALUES ('" + id + "', '" + nom + "');"
     );
   }
+
+  login(email, password) {
+    return client.query(
+      "SELECT * FROM cemployee where email='" +
+        email +
+        "' AND password='" +
+        password +
+        "';"
+    );
+  }
 }
 
 export default new EmployeeService();

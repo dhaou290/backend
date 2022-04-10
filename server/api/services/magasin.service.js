@@ -11,9 +11,7 @@ class MagasinService {
 
   create(id, nom_magasin, lieu_magasin) {
     return client.query(
-      "INSERT INTO magasin (id, nom_magasin, lieu_magasin) VALUES ('" +
-        id +
-        "', '" +
+      "INSERT INTO magasin (id, nom_magasin, lieu_magasin) VALUES ('"+
         nom_magasin +
         "', '" +
         lieu_magasin +

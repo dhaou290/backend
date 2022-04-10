@@ -14,7 +14,6 @@ export class Controller {
 
   create(req, res) {
     Inventaire_produitService.create(
-      req.body.id,
       req.body.date,
       req.body.lieu,
       req.body.nom_du_produit,

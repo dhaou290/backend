@@ -14,7 +14,6 @@ export class Controller {
 
   create(req, res) {
     Inventaire_actionService.create(
-      req.body.id,
       req.body.lieu,
       req.body.magasin
     ).then((r) => res.status(201).json(r.rowCount));

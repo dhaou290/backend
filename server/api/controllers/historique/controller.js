@@ -14,7 +14,6 @@ export class Controller {
 
   create(req, res) {
     HistoriqueService.create(
-      req.body.id,
       req.body.type_inventaire,
       req.body.lieu_inventaire,
       req.body.date_inventaire,

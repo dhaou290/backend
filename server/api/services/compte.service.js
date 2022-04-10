@@ -11,9 +11,7 @@ class CompteService {
 
   create(id, email, phone, password) {
     return client.query(
-      "INSERT INTO comptes (id, email, phone, password) VALUES ('" +
-        id +
-        "', '" +
+      "INSERT INTO comptes (id, email, phone, password) VALUES ('"+
         email +
         "', '" +
         phone +

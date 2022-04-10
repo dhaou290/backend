@@ -11,9 +11,7 @@ class Inventaire_prixService {
 
   create(id, date, lieu, nom_du_magasin, ocr) {
     return client.query(
-      "INSERT INTO Inventaire_prix (id, date, lieu, nom_du_magasin, ocr) VALUES ('" +
-        id +
-        "', '" +
+      "INSERT INTO Inventaire_prix (id, date, lieu, nom_du_magasin, ocr) VALUES ('"+
         date +
         "', '" +
         lieu +

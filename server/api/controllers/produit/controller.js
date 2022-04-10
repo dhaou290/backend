@@ -14,7 +14,6 @@ export class Controller {
 
   create(req, res) {
     ProduitService.create(
-      req.body.id,
       req.body.nom,
       req.body.labelle,
       req.body.quantite,

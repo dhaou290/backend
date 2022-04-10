@@ -11,9 +11,7 @@ class ProduitService {
 
   create(id, nom, labelle, quantite, codeEAN, notre_prix) {
     return client.query(
-      "INSERT INTO produit (id, nom, labelle, quantite, codeean, notre_prix) VALUES ('" +
-        id +
-        "', '" +
+      "INSERT INTO produit (id, nom, labelle, quantite, codeean, notre_prix) VALUES ('"+
         nom +
         "', '" +
         labelle +

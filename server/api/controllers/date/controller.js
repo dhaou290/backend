@@ -14,7 +14,6 @@ export class Controller {
 
   create(req, res) {
     DateService.create(
-      req.body.id,
       req.body.heure,
       req.body.jour,
       req.body.mois,

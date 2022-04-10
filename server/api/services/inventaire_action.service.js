@@ -11,9 +11,7 @@ class Inventaire_actionService {
 
   create(id, lieu, magasin) {
     return client.query(
-      "INSERT INTO inventaire_action (id, lieu, magasin) VALUES ('" +
-        id +
-        "', '" +
+      "INSERT INTO inventaire_action (id, lieu, magasin) VALUES ('"+
         lieu +
         "', '" +
         magasin +

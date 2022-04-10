@@ -14,7 +14,6 @@ export class Controller {
 
   create(req, res) {
     CompteService.create(
-      req.body.id,
       req.body.email,
       req.body.phone,
       req.body.password

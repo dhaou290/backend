@@ -11,9 +11,7 @@ class inventaireService {
 
   create(id, id_inventaire) {
     return client.query(
-      "INSERT INTO inventaire (id, id_inventaire) VALUES ('" +
-        id +
-        "', '" +
+      "INSERT INTO inventaire (id, id_inventaire) VALUES ('"+
         id_inventaire +
         "');"
     );

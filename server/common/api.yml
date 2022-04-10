@@ -200,6 +200,40 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+
+
+  /employee/login:
+    post:
+      tags:
+        - employee
+      description: Create a new login
+      requestBody:
+        description: an login
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/login'
+        required: true
+      responses:
+        201:
+          description: Return the login with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/login'
+        4XX:
+          description: login not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: login not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /employee/{id}:
     get:
       tags:
@@ -321,92 +355,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /utilisateur:
-    get:
-      tags:
-        - utilisateur
-      description: trouver tous les utilisateur
-      responses:
-        200:
-          description: trouver tous les utilisateur
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/utilisateur'
-        4XX:
-          description: utilisateur not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        5XX:
-          description: utilisateur not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    post:
-      tags:
-        - utilisateur
-      description: Create a new utilisateur
-      requestBody:
-        description: an utilisateur
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/utilisateur'
-        required: true
-      responses:
-        201:
-          description: Return the utilisateur with the specified id
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/utilisateur'
-        4XX:
-          description: utilisateur not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        5XX:
-          description: utilisateur not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /utilisateur/{id}:
-    get:
-      tags:
-        - utilisateur
-      parameters:
-        - name: id
-          in: path
-          description: The id of the utilisateur to retrieve
-          required: true
-          schema:
-            type: integer
-      responses:
-        200:
-          description: Return the utilisateur with the specified id
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/utilisateur'
-        4XX:
-          description: Example not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        5XX:
-          description: Example not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+
 
 
 
@@ -1047,6 +996,97 @@ paths:
                 $ref: '#/components/schemas/Error'
 
 
+
+
+  /inventaire_prix:
+    get:
+      tags:
+        - inventaire_prix
+      description: trouver tous les inventaire_prix
+      responses:
+        200:
+          description: trouver tous les inventaire_prix
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/inventaire_prix'
+        4XX:
+          description: inventaire_prix not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: inventaire_prix not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - inventaire_prix
+      description: Create a new inventaire_prix
+      requestBody:
+        description: an inventaire_prix
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/inventaire_prix'
+        required: true
+      responses:
+        201:
+          description: Return the inventaire_prixt with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inventaire_prix'
+        4XX:
+          description: inventaire_prix not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: inventaire_prix not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /inventaire_prix/{id}:
+    get:
+      tags:
+        - inventaire_prix
+      parameters:
+        - name: id
+          in: path
+          description: The id of the inventaire_prix to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the inventaire_prix with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inventaire_prix'
+        4XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
+
   /spec:
     get:
       tags:
@@ -1069,9 +1109,6 @@ components:
     Compte:
       type: object
       properties:
-        id:
-          type: number
-          example: 12225
         email:
           type: string
           example: aaaaa@gmail.com
@@ -1098,9 +1135,6 @@ components:
     employee:
       type: object
       properties:
-        id:
-          type: number
-          example: 1222
         nom:
           type: string
           example: foulen
@@ -1109,9 +1143,6 @@ components:
     produit:
       type: object
       properties:
-        id:
-          type: number
-          example: 8524
         nom:
           type: string
           example: dhaou
@@ -1131,29 +1162,9 @@ components:
 
 
 
-
-    utilisateur:
-      type: object
-      properties:
-        id:
-          type: number
-          example: 741258
-        nom:
-          type: string
-          example: dhaouu
-        prenom:
-          type: string
-          example: Amri
-
-
-
-
     magasin:
       type: object
       properties:
-        id:
-          type: number
-          example: 746681
         nom_magasin:
           type: string
           example: aziza
@@ -1166,9 +1177,6 @@ components:
     date:
       type: object
       properties:
-        id:
-          type: number
-          example: 88888
         heure:
           type: number
           example: 1343
@@ -1188,9 +1196,6 @@ components:
     date_action:
       type: object
       properties:
-        id:
-          type: number
-          example: 758412
         heure:
           type: number
           example: 1509
@@ -1210,9 +1215,6 @@ components:
     inventaire:
       type: object
       properties:
-        id:
-          type: number
-          example: 746681
         id_inventaire:
           type: number
           example: 741258  
@@ -1222,9 +1224,6 @@ components:
     inventaire_action:
       type: object
       properties:
-        id:
-          type: number
-          example: 852369
         lieu:
           type: string
           example: monastir
@@ -1237,9 +1236,6 @@ components:
     historique:
       type: object
       properties:
-        id:
-          type: number
-          example: 14258
         type_inventaire:
           type: string
           example: aaaa
@@ -1260,8 +1256,6 @@ components:
       type: object
       properties:
         id:
-          type: number
-          example: 87240
         date:
           type: string
           example: 09/04/2022
@@ -1280,6 +1274,25 @@ components:
         quantite:
           type: string
           example: libellé
+
+
+
+    inventaire_prix:
+      type: object
+      properties:
+        date:
+          type: string
+          example: 09/04/2022
+        lieu:
+          type: string
+          example: 521
+        nom_du_produit:
+          type: string
+          example: aaaaaaaa
+        ocr:
+          type: string
+          example: ocr
+        
 
           
 
