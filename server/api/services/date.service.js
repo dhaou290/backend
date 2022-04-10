@@ -9,9 +9,9 @@ class DateService {
     return client.query('SELECT * FROM date where id=' + id + ';');
   }
 
-  create(id, heure, jour, mois, année) {
+  create(heure, jour, mois, année) {
     return client.query(
-      "INSERT INTO date (id, heure, jour, mois ,année) VALUES ('"+
+      "INSERT INTO date (heure, jour, mois ,année) VALUES ('" +
         heure +
         "', '" +
         jour +

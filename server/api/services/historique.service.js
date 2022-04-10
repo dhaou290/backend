@@ -8,9 +8,9 @@ class HistoriqueService {
   byId(id) {
     return client.query('SELECT * FROM historique where id=' + id + ';');
   }
-  create(id, type_inventaire, lieu_inventaire, date_inventaire, quantite) {
+  create(type_inventaire, lieu_inventaire, date_inventaire, quantite) {
     return client.query(
-      "INSERT INTO historique (id, type_inventaire, lieu_inventaire, date_inventaire, quantite) VALUES ('"+
+      "INSERT INTO historique (type_inventaire, lieu_inventaire, date_inventaire, quantite) VALUES ('" +
         type_inventaire +
         "', '" +
         lieu_inventaire +

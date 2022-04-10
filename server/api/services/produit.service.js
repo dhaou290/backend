@@ -9,9 +9,9 @@ class ProduitService {
     return client.query('SELECT * FROM produit where id=' + id + ';');
   }
 
-  create(id, nom, labelle, quantite, codeEAN, notre_prix) {
+  create(nom, labelle, quantite, codeEAN, notre_prix) {
     return client.query(
-      "INSERT INTO produit (id, nom, labelle, quantite, codeean, notre_prix) VALUES ('"+
+      "INSERT INTO produit (nom, labelle, quantite, codeean, notre_prix) VALUES ('" +
         nom +
         "', '" +
         labelle +

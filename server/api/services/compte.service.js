@@ -9,9 +9,9 @@ class CompteService {
     return client.query('SELECT * FROM comptes where id=' + id + ';');
   }
 
-  create(id, email, phone, password) {
+  create(email, phone, password) {
     return client.query(
-      "INSERT INTO comptes (id, email, phone, password) VALUES ('"+
+      "INSERT INTO comptes (email, phone, password) VALUES ('" +
         email +
         "', '" +
         phone +

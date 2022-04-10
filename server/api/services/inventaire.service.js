@@ -9,11 +9,9 @@ class inventaireService {
     return client.query('SELECT * FROM inventaire where id=' + id + ';');
   }
 
-  create(id, id_inventaire) {
+  create(id_inventaire) {
     return client.query(
-      "INSERT INTO inventaire (id, id_inventaire) VALUES ('"+
-        id_inventaire +
-        "');"
+      "INSERT INTO inventaire (id_inventaire) VALUES ('" + id_inventaire + "');"
     );
   }
 }

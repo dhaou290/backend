@@ -13,10 +13,9 @@ export class Controller {
   }
 
   create(req, res) {
-    MagasinService.create(
-      req.body.nom_magasin,
-      req.body.lieu_magasin
-    ).then((r) => res.status(201).json(r.rowCount));
+    MagasinService.create(req.body.nom_magasin, req.body.lieu_magasin).then(
+      (r) => res.status(201).json(r.rowCount)
+    );
   }
 }
 export default new Controller();

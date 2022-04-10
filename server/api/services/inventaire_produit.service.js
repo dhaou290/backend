@@ -11,9 +11,9 @@ class Inventaire_produitService {
     );
   }
 
-  create(id, date, lieu, nom_du_magasin, ean, libellé_du_produit, quantite) {
+  create(date, lieu, nom_du_magasin, ean, libellé_du_produit, quantite) {
     return client.query(
-      "INSERT INTO inventaire_produit (id, date, lieu, nom_du_magasin, ean, libellé_du_produit, quantite) VALUES ('"+
+      "INSERT INTO inventaire_produit (date, lieu, nom_du_magasin, ean, libellé_du_produit, quantite) VALUES ('" +
         date +
         "', '" +
         lieu +
