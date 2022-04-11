@@ -4,6 +4,6 @@ import controller from './controller';
 export default express
   .Router()
   .post('/', controller.create)
-  .post('/login', controller.login)
+  .post('/loginn', controller.loginn)
   .get('/', controller.all)
   .get('/:id', controller.byId);

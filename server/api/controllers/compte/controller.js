@@ -16,7 +16,9 @@ export class Controller {
     CompteService.create(
       req.body.email,
       req.body.phone,
-      req.body.password
+      req.body.password,
+      req.body.nom,
+      req.body.prenom
     ).then((r) => res.status(201).json(r.rowCount));
   }
   login(req, res) {

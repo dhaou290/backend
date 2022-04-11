@@ -18,7 +18,7 @@ export class Controller {
     );
   }
 
-  login(req, res) {
+  loginn(req, res) {
     EmployeeService.login(req.body.email, req.body.password).then((r) =>
       res.status(200).json(r.rowCount > 0)
     );

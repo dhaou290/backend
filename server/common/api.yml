@@ -1117,8 +1117,13 @@ components:
           example: "+21621556"
         password:
           type: string
-          example: a123s1
-
+          exemple: a123s1
+        nom:
+          type: string
+          example: amriii
+        prenom:
+          type: string
+          example: dhaouuu
 
 
     login:
@@ -1138,6 +1143,17 @@ components:
         nom:
           type: string
           example: foulen
+
+
+    loginn:
+      type: object
+      properties:
+        email:
+          type: string
+          example: emaill
+        password:
+          type: string
+          example: mdpp   
 
 
     produit:

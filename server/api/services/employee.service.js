@@ -13,7 +13,7 @@ class EmployeeService {
     return client.query("INSERT INTO employee (nom) VALUES ('" + nom + "');");
   }
 
-  login(email, password) {
+  loginn(email, password) {
     return client.query(
       "SELECT * FROM cemployee where email='" +
         email +
