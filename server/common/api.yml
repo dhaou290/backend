@@ -1117,7 +1117,7 @@ components:
           example: "+21621556"
         password:
           type: string
-          exemple: a123s1
+          example: a123s1
         nom:
           type: string
           example: amriii
