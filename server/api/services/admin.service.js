@@ -1,17 +1,17 @@
 import { client } from '../../config/db.config';
 
-class CompteService {
+class AdminService {
   all() {
-    return client.query('SELECT * FROM comptes;');
+    return client.query('SELECT * FROM admin;');
   }
 
   byId(id) {
-    return client.query('SELECT * FROM comptes where id=' + id + ';');
+    return client.query('SELECT * FROM admin where id=' + id + ';');
   }
 
   create(email, phone, password, nom, prenom) {
     return client.query(
-      "INSERT INTO comptes (email, phone, password,nom ,prenom) VALUES ('" +
+      "INSERT INTO admin (email, phone, password,nom ,prenom) VALUES ('" +
         email +
         "', '" +
         phone +
@@ -26,7 +26,7 @@ class CompteService {
   }
   login(email, password) {
     return client.query(
-      "SELECT * FROM comptes where email='" +
+      "SELECT * FROM admin where email='" +
         email +
         "' AND password='" +
         password +
@@ -35,4 +35,4 @@ class CompteService {
   }
 }
 
-export default new CompteService();
+export default new AdminService();

@@ -1,19 +1,19 @@
-import CompteService from '../../services/compte.service';
+import AdminService from '../../services/admin.service';
 
 export class Controller {
   all(req, res) {
-    CompteService.all().then((r) => res.json(r.rows));
+    AdminService.all().then((r) => res.json(r.rows));
   }
 
   byId(req, res) {
-    CompteService.byId(req.params.id).then((r) => {
+    AdminService.byId(req.params.id).then((r) => {
       if (r) res.json(r.rows);
       else res.status(404).end();
     });
   }
 
   create(req, res) {
-    CompteService.create(
+    AdminService.create(
       req.body.email,
       req.body.phone,
       req.body.password,
@@ -22,7 +22,7 @@ export class Controller {
     ).then((r) => res.status(201).json(r.rowCount));
   }
   login(req, res) {
-    CompteService.login(req.body.email, req.body.password).then((r) =>
+    AdminService.login(req.body.email, req.body.password).then((r) =>
       res.status(200).json(r.rowCount > 0)
     );
   }

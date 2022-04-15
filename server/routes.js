@@ -20,6 +20,6 @@ export default function routes(app) {
   app.use('/api/v1/inventaire', inventaireRouter);
   app.use('/api/v1/inventaire_action', inventaire_actionRouter);
   app.use('/api/v1/historique', historiqueRouter);
-  app.use('/api/v1/inventaire_produite', inventaire_produitRouter);
+  app.use('/api/v1/inventaire_produit', inventaire_produitRouter);
   app.use('/api/v1/inventaire_prix', inventaire_prixRouter);
 }

@@ -13,12 +13,17 @@ export class Controller {
   }
 
   create(req, res) {
-    EmployeeService.create(req.body.id, req.body.nom).then((r) =>
-      res.status(201).json(r.rowCount)
-    );
+    EmployeeService.create(
+      req.body.email,
+      req.body.phone,
+      req.body.password,
+      req.body.nom,
+      req.body.id_admin,
+      req.body.prenom
+    ).then((r) => res.status(201).json(r.rowCount));
   }
 
-  loginn(req, res) {
+  login(req, res) {
     EmployeeService.login(req.body.email, req.body.password).then((r) =>
       res.status(200).json(r.rowCount > 0)
     );

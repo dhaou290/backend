@@ -9,13 +9,27 @@ class EmployeeService {
     return client.query('SELECT * FROM employee where id=' + id + ';');
   }
 
-  create(nom) {
-    return client.query("INSERT INTO employee (nom) VALUES ('" + nom + "');");
+  create(email, phone, password, nom,id_admin, prenom) {
+    return client.query(
+      "INSERT INTO employee (email, phone, password,nom ,id_admin ,prenom) VALUES ('" +
+        email +
+        "', '" +
+        phone +
+        "', '" +
+        password +
+        "', '" +
+        nom +
+        "', '" +
+        id_admin +
+        "', '" +
+        prenom +
+        "');"
+    );
   }
 
-  loginn(email, password) {
+  login(email, password) {
     return client.query(
-      "SELECT * FROM cemployee where email='" +
+      "SELECT * FROM employee where email='" +
         email +
         "' AND password='" +
         password +
