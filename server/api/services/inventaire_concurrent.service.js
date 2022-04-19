@@ -1,19 +1,19 @@
 import { client } from '../../config/db.config';
 
-class Inventaire_produitService {
+class Inventaire_concurrentService {
   all() {
-    return client.query('SELECT * FROM inventaire_produit;');
+    return client.query('SELECT * FROM inventaire_concurrent;');
   }
 
   byId(id) {
     return client.query(
-      'SELECT * FROM inventaire_produit where id=' + id + ';'
+      'SELECT * FROM inventaire_concurrent where id=' + id + ';'
     );
   }
 
   create(date, lieu, nom_du_magasin, ean, libellé_du_produit, quantite) {
     return client.query(
-      "INSERT INTO inventaire_produit (date, lieu, nom_du_magasin, ean, libellé_du_produit, quantite) VALUES ('" +
+      "INSERT INTO inventaire_concurrent (date, lieu, nom_du_magasin, ean, libellé_du_produit, quantite) VALUES ('" +
         date +
         "', '" +
         lieu +
@@ -30,4 +30,4 @@ class Inventaire_produitService {
   }
 }
 
-export default new Inventaire_produitService();
+export default new Inventaire_concurrentService();

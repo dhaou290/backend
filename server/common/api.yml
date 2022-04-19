@@ -817,80 +817,86 @@ paths:
 
 
 
-  /historique:
+
+
+
+
+
+
+  /inventaire_concurrent:
     get:
       tags:
-        - historique
-      description: trouver tous les historique
+        - inventaire_concurrent
+      description: trouver tous les inventaire_concurrent
       responses:
         200:
-          description: trouver tous les historique
+          description: trouver tous les inventaire_concurrent
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/historique'
+                  $ref: '#/components/schemas/inventaire_concurrent'
         4XX:
-          description: historique not found
+          description: inventaire_concurrent not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
         5XX:
-          description: historique not found
+          description: inventaire_concurrent not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
     post:
       tags:
-        - historique
-      description: Create a new historique
+        - inventaire_concurrent
+      description: Create a new inventaire_concurrent
       requestBody:
-        description: an historique
+        description: an inventaire_concurrent
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/historique'
+              $ref: '#/components/schemas/inventaire_concurrent'
         required: true
       responses:
         201:
-          description: Return the historique with the specified id
+          description: Return the inventaire_concurrent with the specified id
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/historique'
+                $ref: '#/components/schemas/inventaire_concurrent'
         4XX:
-          description: historique not found
+          description: inventaire_concurrent not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
         5XX:
-          description: historique not found
+          description: inventaire_concurrent not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /historique/{id}:
+  /inventaire_concurrent/{id}:
     get:
       tags:
-        - historique
+        - inventaire_concurrent
       parameters:
         - name: id
           in: path
-          description: The id of the historique to retrieve
+          description: The id of the inventaire_concurrent to retrieve
           required: true
           schema:
             type: integer
       responses:
         200:
-          description: Return the historique with the specified id
+          description: Return the inventaire_concurrent with the specified id
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/historique'
+                $ref: '#/components/schemas/inventaire_concurrent'
         4XX:
           description: Example not found
           content:
@@ -907,194 +913,6 @@ paths:
 
 
 
-
-  /inventaire_produit:
-    get:
-      tags:
-        - inventaire_produit
-      description: trouver tous les inventaire_produit
-      responses:
-        200:
-          description: trouver tous les inventaire_produit
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/inventaire_produit'
-        4XX:
-          description: inventaire_produit not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        5XX:
-          description: inventaire_produit not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    post:
-      tags:
-        - inventaire_produit
-      description: Create a new inventaire_produit
-      requestBody:
-        description: an inventaire_produit
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/inventaire_produit'
-        required: true
-      responses:
-        201:
-          description: Return the inventaire_produit with the specified id
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inventaire_produit'
-        4XX:
-          description: inventaire_produit not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        5XX:
-          description: inventaire_produit not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /inventaire_produit/{id}:
-    get:
-      tags:
-        - inventaire_produit
-      parameters:
-        - name: id
-          in: path
-          description: The id of the inventaire_produit to retrieve
-          required: true
-          schema:
-            type: integer
-      responses:
-        200:
-          description: Return the inventaire_produit with the specified id
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inventaire_produit'
-        4XX:
-          description: Example not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        5XX:
-          description: Example not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-
-
-
-
-  /inventaire_prix:
-    get:
-      tags:
-        - inventaire_prix
-      description: trouver tous les inventaire_prix
-      responses:
-        200:
-          description: trouver tous les inventaire_prix
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/inventaire_prix'
-        4XX:
-          description: inventaire_prix not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        5XX:
-          description: inventaire_prix not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    post:
-      tags:
-        - inventaire_prix
-      description: Create a new inventaire_prix
-      requestBody:
-        description: an inventaire_prix
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/inventaire_prix'
-        required: true
-      responses:
-        201:
-          description: Return the inventaire_prixt with the specified id
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inventaire_prix'
-        4XX:
-          description: inventaire_prix not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        5XX:
-          description: inventaire_prix not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /inventaire_prix/{id}:
-    get:
-      tags:
-        - inventaire_prix
-      parameters:
-        - name: id
-          in: path
-          description: The id of the inventaire_prix to retrieve
-          required: true
-          schema:
-            type: integer
-      responses:
-        200:
-          description: Return the inventaire_prix with the specified id
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inventaire_prix'
-        4XX:
-          description: Example not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        5XX:
-          description: Example not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-
-
-
-  /spec:
-    get:
-      tags:
-        - Specification
-      responses:
-        200:
-          description: Return the API specification
-          content: {}
 
 
 
@@ -1205,40 +1023,8 @@ components:
 
 
 
-    date:
-      type: object
-      properties:
-        heure:
-          type: number
-          example: 1343
-        jour:
-          type: number
-          example: 31
-        mois:
-          type: number
-          example: 03         
-        année:
-          type: number
-          example: 2022 
 
 
-
-
-    date_action:
-      type: object
-      properties:
-        heure:
-          type: number
-          example: 1509
-        jour:
-          type: number
-          example: 01
-        mois:
-          type: number
-          example: 04         
-        année:
-          type: number
-          example: 2021                
 
 
 
@@ -1252,38 +1038,10 @@ components:
 
 
 
-    inventaire_action:
-      type: object
-      properties:
-        lieu:
-          type: string
-          example: monastir
-        magasin:
-          type: string
-          example: mg
 
 
 
-    historique:
-      type: object
-      properties:
-        type_inventaire:
-          type: string
-          example: aaaa
-        lieu_inventaire:
-          type: string
-          example: bbbb
-        date_inventaire:
-          type: number
-          example: 2021         
-        quantite:
-          type: number
-          example: 966336
-
-
-
-
-    inventaire_produit:
+    inventaire_concurrent:
       type: object
       properties:
         date:
@@ -1307,23 +1065,16 @@ components:
 
 
 
-    inventaire_prix:
+
+    magasininer:
       type: object
       properties:
-        date:
+        nom_magasin:
           type: string
-          example: 09/04/2022
-        lieu:
+          example: mg
+        lieu_magasin:
           type: string
-          example: 521
-        nom_du_produit:
-          type: string
-          example: aaaaaaaa
-        ocr:
-          type: string
-          example: ocr
-        
-
+          example: tunis
           
 
     Error:
