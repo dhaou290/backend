@@ -455,185 +455,101 @@ paths:
 
 
 
-
-  /date:
+  /magasin_concurrent:
     get:
       tags:
-        - date
-      description: trouver tous les date
+        - magasin_concurrent
+      description: trouver tous les magasin_concurrent
       responses:
         200:
-          description: trouver tous les date
+          description: trouver tous les magasin_concurrent
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/date'
+                  $ref: '#/components/schemas/magasin_concurrent'
         4XX:
-          description: date not found
+          description: magasin_concurrent not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
         5XX:
-          description: date not found
+          description: magasin_concurrent not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
     post:
       tags:
-        - date
-      description: Create a new date
+        - magasin_concurrent
+      description: Create a new magasin_concurrent
       requestBody:
-        description: an date
+        description: an magasin_concurrent
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/date'
+              $ref: '#/components/schemas/magasin_concurrent'
         required: true
       responses:
         201:
-          description: Return the date with the specified id
+          description: Return the magasin_concurrent with the specified id
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/date'
+                $ref: '#/components/schemas/magasin_concurrent'
         4XX:
-          description: date not found
+          description: magasin_concurrent not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
         5XX:
-          description: date not found
+          description: magasin_concurrent not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /date/{id}:
-    get:
-      tags:
-        - date
-      parameters:
-        - name: id
-          in: path
-          description: The id of the date to retrieve
-          required: true
-          schema:
-            type: integer
-      responses:
-        200:
-          description: Return the date with the specified id
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/date'
-        4XX:
-          description: Example not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        5XX:
-          description: Example not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-
-
-
-
-
-
-  /date_action:
-    get:
-      tags:
-        - date_action
-      description: trouver tous les date_action
-      responses:
-        200:
-          description: trouver tous les date_action
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/date_action'
-        4XX:
-          description: date_action not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        5XX:
-          description: admin not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    post:
-      tags:
-        - date_action
-      description: Create a new date_action
-      requestBody:
-        description: an admin
-        content:
-          application/json:
+  
+  /magasin_concurrent/{id}:
+      get:
+        tags:
+          - magasin_concurrent
+        parameters:
+          - name: id
+            in: path
+            description: The id of the magasin_concurrent to retrieve
+            required: true
             schema:
-              $ref: '#/components/schemas/date_action'
-        required: true
-      responses:
-        201:
-          description: Return the admin with the specified id
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/date_action'
-        4XX:
-          description: date not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        5XX:
-          description: date_action not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /date_action/{id}:
-    get:
-      tags:
-        - date_action
-      parameters:
-        - name: id
-          in: path
-          description: The id of the date_action to retrieve
-          required: true
-          schema:
-            type: integer
-      responses:
-        200:
-          description: Return the date_action with the specified id
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/date_action'
-        4XX:
-          description: Example not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        5XX:
-          description: Example not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+              type: integer
+        responses:
+          200:
+            description: Return the magasin_concurrent with the specified id
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/magasin_concurrent'
+          4XX:
+            description: Example not found
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Error'
+          5XX:
+            description: Example not found
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Error'
+
+
+
+
+
+
+
+
 
 
 
@@ -726,80 +642,86 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /inventaire_action:
+
+
+
+
+                
+
+  /magasinier:
     get:
       tags:
-        - inventaire_action
-      description: trouver tous les inventaire_action
+        - magasinier
+      description: trouver tous les magasinier
       responses:
         200:
-          description: trouver tous les inventaire_action
+          description: trouver tous les magasinier
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/inventaire_action'
+                  $ref: '#/components/schemas/magasinier'
         4XX:
-          description: inventaire_action not found
+          description: magasinier not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
         5XX:
-          description: inventaire_action not found
+          description: magasinier not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
     post:
       tags:
-        - inventaire_action
-      description: Create a new inventaire_action
+        - magasinier
+      description: Create a new magasinier
       requestBody:
-        description: an inventaire_action
+        description: an magasinier
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/inventaire_action'
+              $ref: '#/components/schemas/magasinier'
         required: true
       responses:
         201:
-          description: Return the inventaire_action with the specified id
+          description: Return the magasinier with the specified id
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inventaire_action'
+                $ref: '#/components/schemas/magasinier'
         4XX:
-          description: inventaire_action not found
+          description: magasinier not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
         5XX:
-          description: inventaire_action not found
+          description: magasinier not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /inventaire_action/{id}:
+  /magasinier/{id}:
     get:
       tags:
-        - inventaire_action
+        - magasinier
       parameters:
         - name: id
           in: path
-          description: The id of the inventaire_action to retrieve
+          description: The id of the magasinier to retrieve
           required: true
           schema:
             type: integer
       responses:
         200:
-          description: Return the inventaire_action with the specified id
+          description: Return the magasinier with the specified id
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inventaire_action'
+                $ref: '#/components/schemas/magasinier'
         4XX:
           description: Example not found
           content:
@@ -915,7 +837,92 @@ paths:
 
 
 
-
+  /utilisateur:
+    get:
+      tags:
+        - utilisateur
+      description: trouver tous les utilisateur
+      responses:
+        200:
+          description: trouver tous les utilisateur
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/utilisateur'
+        4XX:
+          description: utilisateur not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: utilisateur not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - utilisateur
+      description: Create a new utilisateur
+      requestBody:
+        description: an utilisateur
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/utilisateur'
+        required: true
+      responses:
+        201:
+          description: Return the utilisateur with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/utilisateur'
+        4XX:
+          description: utilisateur not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: utilisateur not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /utilisateur/{id}:
+    get:
+      tags:
+        - utilisateur
+      parameters:
+        - name: id
+          in: path
+          description: The id of the utilisateur to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the utilisateur with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/utilisateur'
+        4XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
 
 
@@ -1076,6 +1083,35 @@ components:
           type: string
           example: tunis
           
+
+
+    magasini_concurrent:
+      type: object
+      properties:
+        nom:
+          type: string
+          example: mgg
+        lieu:
+          type: string
+          example: tunisia
+
+
+    utilisateur:
+      type: object
+      properties:
+        nom_complet:
+          type: string
+          example: xfgfh
+        phone:
+          type: number
+          example: 29012558
+        email:
+          type: string
+          example: dldnldkncs@gmail.com
+        password:
+          type: number
+          example: 684684
+
 
     Error:
       type: object
