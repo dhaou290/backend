@@ -9,20 +9,20 @@ class EmployeeService {
     return client.query('SELECT * FROM employee where id=' + id + ';');
   }
 
-  create(email, phone, password, nom,id_admin, prenom) {
+  create(email, phone, password, nom_complet,nom_magasin, lieu_magasin) {
     return client.query(
-      "INSERT INTO employee (email, phone, password,nom ,id_admin ,prenom) VALUES ('" +
+      "INSERT INTO employee (email, phone, password,nom_complet ,nom_magasin ,lieu_magasin) VALUES ('" +
         email +
         "', '" +
         phone +
         "', '" +
         password +
         "', '" +
-        nom +
+        nom_complet +
         "', '" +
-        id_admin +
+        nom_magasin +
         "', '" +
-        prenom +
+        lieu_magasin +
         "');"
     );
   }

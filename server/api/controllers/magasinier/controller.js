@@ -14,6 +14,10 @@ export class Controller {
 
   create(req, res) {
     MagasinierService.create(
+      req.body.email,
+      req.body.phone,
+      req.body.password,
+      req.body.nom_complet,
       req.body.nom_magasin,
       req.body.lieu_magasin
     ).then((r) => res.status(201).json(r.rowCount));

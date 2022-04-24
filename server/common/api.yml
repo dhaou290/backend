@@ -646,7 +646,7 @@ paths:
 
 
 
-                
+
 
   /magasinier:
     get:
@@ -938,17 +938,15 @@ components:
           type: string
           example: aaaaa@gmail.com
         phone:
-          type: string
+          type: number
           example: "+21621556"
         password:
           type: string
           example: a123s1
-        nom:
+        nom_complet:
           type: string
-          example: amriii
-        prenom:
-          type: string
-          example: dhaouuu
+          example: amridhaou
+
 
 
     login:
@@ -956,10 +954,10 @@ components:
       properties:
         email:
           type: string
-          example: email
+          example: dhaou@gmail.com
         password:
           type: string
-          example: mdp          
+          example: mdg5778gy         
 
 
     employee:
@@ -974,15 +972,15 @@ components:
         password:
           type: string
           example: a123s1
-        nom:
+        nom_complet:
           type: string
-          example: amriii
-        id_admin:
-          type: number
-          example: 742685       
-        prenom:
+          example: amriidha
+        nom_magasin:
           type: string
-          example: dhaouuu
+          example: mini_prix    
+        lieu:
+          type: string
+          example: tunis
 
 
     loginn:
@@ -993,7 +991,7 @@ components:
           example: emaill
         password:
           type: string
-          example: mdpp   
+          example: ghk455cd   
 
 
     produit:
@@ -1082,6 +1080,18 @@ components:
         lieu_magasin:
           type: string
           example: tunis
+        email:
+          type: string
+          example: aadt@gmail.com
+        phone:
+          type: string
+          example: "+21629012"
+        password:
+          type: string
+          example: xg476s
+        nom_complet:
+          type: string
+          example: amriidhaw
           
 
 

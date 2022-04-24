@@ -17,8 +17,7 @@ export class Controller {
       req.body.email,
       req.body.phone,
       req.body.password,
-      req.body.nom,
-      req.body.prenom
+      req.body.nom_complet
     ).then((r) => res.status(201).json(r.rowCount));
   }
   login(req, res) {

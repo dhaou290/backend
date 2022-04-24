@@ -17,9 +17,9 @@ export class Controller {
       req.body.email,
       req.body.phone,
       req.body.password,
-      req.body.nom,
-      req.body.id_admin,
-      req.body.prenom
+      req.body.nom_complet,
+      req.body.nom_magasin,
+      req.body.lieu_magasin
     ).then((r) => res.status(201).json(r.rowCount));
   }
 

@@ -18,8 +18,7 @@ export class Controller {
       req.body.lieu_magasin,
       req.body.nombre_des_magasin,
       req.body.magasinier_id
-      ).then(
-      (r) => res.status(201).json(r.rowCount)
+    ).then((r) => res.status(201).json(r.rowCount)
     );
   }
 }
