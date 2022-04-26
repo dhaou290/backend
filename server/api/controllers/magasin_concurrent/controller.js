@@ -13,8 +13,8 @@ export class Controller {
   }
 
   create(req, res) {
-    Magasin_concurrentService.create(req.body.nom, req.body.lieu).then(
-      (r) => res.status(201).json(r.rowCount)
+    Magasin_concurrentService.create(req.body.nom, req.body.lieu).then((r) =>
+      res.status(201).json(r.rowCount)
     );
   }
 }

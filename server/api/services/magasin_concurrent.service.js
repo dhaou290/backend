@@ -6,7 +6,9 @@ class Magasin_concurrentService {
   }
 
   byId(id) {
-    return client.query('SELECT * FROM magasin_concurrent where id=' + id + ';');
+    return client.query(
+      'SELECT * FROM magasin_concurrent where id=' + id + ';'
+    );
   }
 
   create(nom, lieu) {

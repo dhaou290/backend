@@ -9,9 +9,9 @@ class MagasinierService {
     return client.query('SELECT * FROM magasinier where id=' + id + ';');
   }
 
-  create(email, phone, password, nom_complet,nom_magasin, lieu_magasin) {
+  create(email, phone, password, nom_complet, nom_magasin, lieu_magasin) {
     return client.query(
-      "INSERT INTO magasinier (email, phone, password,nom_complet ,nom_magasin ,lieu_magasin) VALUES ('" +
+      "INSERT INTO magasinier (email, phone, password, nom_complet, nom_magasin, lieu_magasin) VALUES ('" +
         email +
         "', '" +
         phone +

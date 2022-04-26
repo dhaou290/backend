@@ -1071,7 +1071,7 @@ components:
 
 
 
-    magasininer:
+    magasinier:
       type: object
       properties:
         nom_magasin:
@@ -1095,7 +1095,7 @@ components:
           
 
 
-    magasini_concurrent:
+    magasin_concurrent:
       type: object
       properties:
         nom:
