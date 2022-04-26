@@ -12,16 +12,16 @@ class ProduitService {
   create(nom, labelle, quantite, codeEAN, notre_prix) {
     return client.query(
       "INSERT INTO produit (nom, labelle, quantite, codeean, notre_prix) VALUES ('" +
-        nom +
-        "', '" +
-        labelle +
-        "', " +
-        quantite +
-        ', ' +
-        codeEAN +
-        ', ' +
-        notre_prix +
-        ');'
+      nom +
+      "', '" +
+      labelle +
+      "', " +
+      quantite +
+      ', ' +
+      codeEAN +
+      ', ' +
+      notre_prix +
+      ');'
     );
   }
 }

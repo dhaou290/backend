@@ -138,7 +138,7 @@ paths:
                 $ref: '#/components/schemas/Error'
 
 
-
+ 
 
 
 
@@ -1094,6 +1094,7 @@ components:
           example: amriidhaw
           
 
+    
 
     magasin_concurrent:
       type: object

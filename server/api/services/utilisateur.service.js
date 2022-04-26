@@ -12,14 +12,14 @@ class UtilisateurService {
   create(nom_complet, phone, email, password) {
     return client.query(
       "INSERT INTO Utilisateur (nom_complet, phone, email ,password) VALUES ('" +
-        nom_complet +
-        "', '" +
-        phone +
-        "', '" +
-        email +
-        "', '" +
-        password +
-        "');"
+      nom_complet +
+      "', '" +
+      phone +
+      "', '" +
+      email +
+      "', '" +
+      password +
+      "');"
     );
   }
 }

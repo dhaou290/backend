@@ -14,18 +14,18 @@ class Inventaire_concurrentService {
   create(date, lieu, nom_du_magasin, ean, libellé_du_produit, quantite) {
     return client.query(
       "INSERT INTO inventaire_concurrent (date, lieu, nom_du_magasin, ean, libellé_du_produit, quantite) VALUES ('" +
-        date +
-        "', '" +
-        lieu +
-        "', '" +
-        nom_du_magasin +
-        "', '" +
-        ean +
-        "', '" +
-        libellé_du_produit +
-        "', '" +
-        quantite +
-        "');"
+      date +
+      "', '" +
+      lieu +
+      "', '" +
+      nom_du_magasin +
+      "', '" +
+      ean +
+      "', '" +
+      libellé_du_produit +
+      "', '" +
+      quantite +
+      "');"
     );
   }
 }

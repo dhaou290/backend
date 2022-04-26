@@ -12,14 +12,14 @@ class MagasinService {
   create(nom_magasin, lieu_magasin, nombre_des_employee, magasinier_id) {
     return client.query(
       "INSERT INTO magasin (nom_magasin, lieu_magasin, nombre_des_employee ,magasinier_id) VALUES ('" +
-        nom_magasin +
-        "', '" +
-        lieu_magasin +
-        "', '" +
-        nombre_des_employee +
-        "', '" +
-        magasinier_id +
-        "');"
+      nom_magasin +
+      "', '" +
+      lieu_magasin +
+      "', '" +
+      nombre_des_employee +
+      "', '" +
+      magasinier_id +
+      "');"
     );
   }
 }

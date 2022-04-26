@@ -12,23 +12,23 @@ class AdminService {
   create(email, phone, password, nom_complet) {
     return client.query(
       "INSERT INTO admin (email, phone, password,nom_complet) VALUES ('" +
-        email +
-        "', '" +
-        phone +
-        "', '" +
-        password +
-        "', '" +
-        nom_complet +
-        "');"
+      email +
+      "', '" +
+      phone +
+      "', '" +
+      password +
+      "', '" +
+      nom_complet +
+      "');"
     );
   }
   login(email, password) {
     return client.query(
       "SELECT * FROM admin where email='" +
-        email +
-        "' AND password='" +
-        password +
-        "';"
+      email +
+      "' AND password='" +
+      password +
+      "';"
     );
   }
 }
