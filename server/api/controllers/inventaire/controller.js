@@ -13,7 +13,7 @@ export class Controller {
   }
 
   create(req, res) {
-    InventaireService.create(req.body.id, req.body.id_inventaire).then((r) =>
+    InventaireService.create(req.body.id_inventaire).then((r) =>
       res.status(201).json(r.rowCount)
     );
   }

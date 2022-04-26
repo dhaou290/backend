@@ -9,19 +9,15 @@ class ProduitService {
     return client.query('SELECT * FROM produit where id=' + id + ';');
   }
 
-  create(nom, labelle, quantite, codeEAN, notre_prix) {
+  create(labelle, codeEAN, notre_prix) {
     return client.query(
-      "INSERT INTO produit (nom, labelle, quantite, codeean, notre_prix) VALUES ('" +
-      nom +
-      "', '" +
-      labelle +
-      "', " +
-      quantite +
-      ', ' +
-      codeEAN +
-      ', ' +
-      notre_prix +
-      ');'
+      "INSERT INTO produit (labelle, codeean, notre_prix) VALUES ('" +
+        labelle +
+        "', " +
+        notre_prix +
+        ', ' +
+        codeEAN +
+        ');'
     );
   }
 }

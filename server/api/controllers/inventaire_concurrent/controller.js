@@ -14,12 +14,9 @@ export class Controller {
 
   create(req, res) {
     Inventaire_concurrentService.create(
-      req.body.date,
-      req.body.lieu,
-      req.body.nom_du_produit,
       req.body.ean,
       req.body.libellé_du_produit,
-      req.body.quantite
+      req.body.prix
     ).then((r) => res.status(201).json(r.rowCount));
   }
 }

@@ -16,7 +16,7 @@ export class Controller {
     MagasinService.create(
       req.body.nom_magasin,
       req.body.lieu_magasin,
-      req.body.nombre_des_magasin,
+      req.body.nombre_des_employee,
       req.body.magasinier_id
     ).then((r) => res.status(201).json(r.rowCount));
   }

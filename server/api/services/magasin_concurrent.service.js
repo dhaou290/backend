@@ -17,7 +17,7 @@ class Magasin_concurrentService {
         nom +
         "', '" +
         lieu +
-        ');'
+        "');"
     );
   }
 }

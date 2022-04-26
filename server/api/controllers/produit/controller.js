@@ -14,9 +14,7 @@ export class Controller {
 
   create(req, res) {
     ProduitService.create(
-      req.body.nom,
       req.body.labelle,
-      req.body.quantite,
       req.body.codeEAN,
       req.body.notre_prix
     ).then((r) => res.status(201).json(r.rowCount));

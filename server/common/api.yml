@@ -832,101 +832,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-
-
-
-
-
-  /utilisateur:
-    get:
-      tags:
-        - utilisateur
-      description: trouver tous les utilisateur
-      responses:
-        200:
-          description: trouver tous les utilisateur
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/utilisateur'
-        4XX:
-          description: utilisateur not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        5XX:
-          description: utilisateur not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    post:
-      tags:
-        - utilisateur
-      description: Create a new utilisateur
-      requestBody:
-        description: an utilisateur
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/utilisateur'
-        required: true
-      responses:
-        201:
-          description: Return the utilisateur with the specified id
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/utilisateur'
-        4XX:
-          description: utilisateur not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        5XX:
-          description: utilisateur not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /utilisateur/{id}:
-    get:
-      tags:
-        - utilisateur
-      parameters:
-        - name: id
-          in: path
-          description: The id of the utilisateur to retrieve
-          required: true
-          schema:
-            type: integer
-      responses:
-        200:
-          description: Return the utilisateur with the specified id
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/utilisateur'
-        4XX:
-          description: Example not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        5XX:
-          description: Example not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-
-
-
-
 components:
   schemas:
 
@@ -939,7 +844,7 @@ components:
           example: aaaaa@gmail.com
         phone:
           type: number
-          example: "+21621556"
+          example: 0021621556
         password:
           type: string
           example: a123s1
@@ -997,12 +902,6 @@ components:
     produit:
       type: object
       properties:
-        nom:
-          type: string
-          example: dhaou
-        quantite:
-          type: number
-          example: 521
         codeEAN:
           type: number
           example: 35553
@@ -1025,6 +924,12 @@ components:
         lieu_magasin:
           type: string
           example: sousse
+        nombre_des_employee:
+          type: number
+          example: 122
+        magasinier_id:
+          type: number
+          example: 20
 
 
 
@@ -1049,24 +954,15 @@ components:
     inventaire_concurrent:
       type: object
       properties:
-        date:
-          type: string
-          example: 09/04/2022
-        lieu:
-          type: string
-          example: tafela
-        nom_du_produit:
-          type: string
-          example: aaaaaaaa
         ean:
           type: string
           example: ean
         libelle_du_produit:
           type: string
           example: libellé
-        quantite:
-          type: string
-          example: libellé
+        prix:
+          type: number
+          example: 10.2
 
 
 
@@ -1105,23 +1001,6 @@ components:
         lieu:
           type: string
           example: tunisia
-
-
-    utilisateur:
-      type: object
-      properties:
-        nom_complet:
-          type: string
-          example: xfgfh
-        phone:
-          type: number
-          example: 29012558
-        email:
-          type: string
-          example: dldnldkncs@gmail.com
-        password:
-          type: number
-          example: 684684
 
 
     Error:
