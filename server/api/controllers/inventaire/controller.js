@@ -13,9 +13,12 @@ export class Controller {
   }
 
   create(req, res) {
-    InventaireService.create(req.body.id_inventaire).then((r) =>
-      res.status(201).json(r.rowCount)
-    );
+    InventaireService.create(
+      req.body.labelle,
+      req.body.codeEAN,
+      req.body.notre_prix,
+      req.body.quantite
+    ).then((r) => res.status(201).json(r.rowCount));
   }
 }
 export default new Controller();

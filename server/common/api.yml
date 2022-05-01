@@ -841,17 +841,19 @@ components:
       properties:
         email:
           type: string
-          example: aaaaa@gmail.com
+          example: mybensh@gmail.com
         phone:
           type: number
           example: 0021621556
         password:
           type: string
-          example: a123s1
+          example: azerty
         nom_complet:
           type: string
           example: amridhaou
-
+        role:
+          type: string
+          example: admin
 
 
     login:
@@ -870,7 +872,7 @@ components:
       properties:
         email:
           type: string
-          example: aaaaa@gmail.com
+          example: employee@gmail.com
         phone:
           type: string
           example: "+21621556"
@@ -886,6 +888,9 @@ components:
         lieu:
           type: string
           example: tunis
+        role:
+          type: string
+          example: employee
 
 
     loginn:
@@ -942,10 +947,18 @@ components:
     inventaire:
       type: object
       properties:
-        id_inventaire:
+        codeean:
           type: number
-          example: 741258  
-
+          example: 35574
+        labelle:
+          type: string
+          example: labelle
+        notre_prix:
+          type: number
+          example: 98875
+        quantite:
+          type: number
+          example: 98871
 
 
 
@@ -988,7 +1001,9 @@ components:
         nom_complet:
           type: string
           example: amriidhaw
-          
+        role:
+          type: string
+          example: magasinier   
 
     
 
