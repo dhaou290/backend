@@ -12,12 +12,17 @@ export class Controller {
     });
   }
 
-  create(req, res) {
-    ProduitService.create(
-      req.body.labelle,
-      req.body.codeEAN,
-      req.body.notre_prix
-    ).then((r) => res.status(201).json(r.rowCount));
+  async create(req, res) {
+    try {
+      const r = await ProduitService.create(
+        req.body.labelle,
+        req.body.codeEAN,
+        req.body.notre_prix
+      );
+      res.status(201).json(r.rowCount > 0);
+    } catch (e) {
+      res.status(200).json(false);
+    }
   }
 }
 export default new Controller();

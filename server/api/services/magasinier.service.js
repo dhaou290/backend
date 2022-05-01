@@ -2,16 +2,22 @@ import { client } from '../../config/db.config';
 
 class MagasinierService {
   all() {
-    return client.query('SELECT * FROM magasinier;');
+    return client.query(
+      'SELECT * FROM magasinier m INNER JOIN magasin mm on m.id=mm.magasinier_id ;'
+    );
   }
 
   byId(id) {
-    return client.query('SELECT * FROM magasinier where id=' + id + ';');
+    return client.query(
+      'SELECT * FROM magasinier m INNER JOIN magasin mm on m.id=mm.magasinier_id where m.id=' +
+        id +
+        ';'
+    );
   }
 
-  create(email, phone, password, nom_complet, nom_magasin, lieu_magasin, role) {
-    return client.query(
-      "INSERT INTO magasinier (email, phone, password, nom_complet, nom_magasin, lieu_magasin, role) VALUES ('" +
+  create(email, phone, password, nom_complet, role) {
+    client.query(
+      "INSERT INTO magasinier (email, phone, password, nom_complet, role) VALUES ('" +
         email +
         "', '" +
         phone +
@@ -20,12 +26,21 @@ class MagasinierService {
         "', '" +
         nom_complet +
         "', '" +
-        nom_magasin +
-        "', '" +
-        lieu_magasin +
-        "', '" +
         role +
         "');"
+    );
+    return client.query(
+      "SELECT * FROM magasinier where email='" + email + "';"
+    );
+  }
+
+  changePassword(email, password) {
+    return client.query(
+      "UPDATE magasinier SET password = '" +
+        password +
+        "' where email='" +
+        email +
+        "';"
     );
   }
 }

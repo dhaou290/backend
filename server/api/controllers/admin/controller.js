@@ -12,14 +12,19 @@ export class Controller {
     });
   }
 
-  create(req, res) {
-    AdminService.create(
-      req.body.email,
-      req.body.phone,
-      req.body.password,
-      req.body.nom_complet,
-      req.body.role
-    ).then((r) => res.status(201).json(r.rowCount));
+  async create(req, res) {
+    try {
+      const r = await AdminService.create(
+        req.body.email,
+        req.body.phone,
+        req.body.password,
+        req.body.nom_complet,
+        req.body.role
+      );
+      res.status(201).json(r.rowCount > 0);
+    } catch (e) {
+      res.status(200).json(false);
+    }
   }
   login(req, res) {
     AdminService.login(req.body.email, req.body.password).then((r) =>

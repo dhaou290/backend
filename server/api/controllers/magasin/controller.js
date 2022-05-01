@@ -12,13 +12,18 @@ export class Controller {
     });
   }
 
-  create(req, res) {
-    MagasinService.create(
-      req.body.nom_magasin,
-      req.body.lieu_magasin,
-      req.body.nombre_des_employee,
-      req.body.magasinier_id
-    ).then((r) => res.status(201).json(r.rowCount));
+  async create(req, res) {
+    try {
+      const r = await MagasinService.create(
+        req.body.nom_magasin,
+        req.body.lieu_magasin,
+        req.body.nombre_des_employee,
+        req.body.magasinier_id
+      );
+      res.status(201).json(r.rowCount > 0);
+    } catch (e) {
+      res.status(200).json(false);
+    }
   }
 }
 export default new Controller();

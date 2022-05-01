@@ -28,6 +28,15 @@ class EmployeeService {
         "');"
     );
   }
+  changePassword(email, password) {
+    return client.query(
+      "UPDATE employee SET password = '" +
+        password +
+        "' where email='" +
+        email +
+        "';"
+    );
+  }
 
   login(email, password) {
     return client.query(

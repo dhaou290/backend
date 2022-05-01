@@ -233,7 +233,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
+  /employee/changePassword:
+    post:
+      tags:
+        - employee
+      description: Create a new employeePassword
+      requestBody:
+        description: an employeePassword
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/employeePassword'
+        required: true
+      responses:
+        201:
+          description: Return the employeePassword with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/employeePassword'
+        4XX:
+          description: employeePassword not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: employeePassword not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /employee/{id}:
     get:
       tags:
@@ -704,6 +734,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /magasinier/changePassword:
+    post:
+      tags:
+        - magasinier
+      description: Create a new magasinierPassword
+      requestBody:
+        description: an magasinierPassword
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/magasinierPassword'
+        required: true
+      responses:
+        201:
+          description: Return the magasinierPassword with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/magasinierPassword'
+        4XX:
+          description: magasinierPassword not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: magasinierPassword not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /magasinier/{id}:
     get:
       tags:
@@ -1003,7 +1064,29 @@ components:
           example: amriidhaw
         role:
           type: string
-          example: magasinier   
+          example: magasinier
+        nombre_des_employee:
+          type: number
+          example: 122
+   
+    magasinierPassword:
+      type: object
+      properties:
+        email:
+          type: string
+          example: aadt@gmail.com
+        password:
+          type: string
+          example: xg476s
+    employeePassword:
+      type: object
+      properties:
+        email:
+          type: string
+          example: aadt@gmail.com
+        password:
+          type: string
+          example: xg476s
 
     
 

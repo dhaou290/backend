@@ -12,10 +12,16 @@ export class Controller {
     });
   }
 
-  create(req, res) {
-    Magasin_concurrentService.create(req.body.nom, req.body.lieu).then((r) =>
-      res.status(201).json(r.rowCount)
-    );
+  async create(req, res) {
+    try {
+      const r = await Magasin_concurrentService.create(
+        req.body.nom,
+        req.body.lieu
+      );
+      res.status(201).json(r.rowCount > 0);
+    } catch (e) {
+      res.status(200).json(false);
+    }
   }
 }
 
