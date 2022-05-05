@@ -9,14 +9,25 @@ class inventaireService {
     return client.query('SELECT * FROM inventaire where id=' + id + ';');
   }
 
-  create(labelle, codeean, notre_prix, quantite) {
+  changePrix(codeean, prix) {
     return client.query(
-      "INSERT INTO inventaire (labelle, codeean, notre_prix, quantite) VALUES ('" +
-        labelle +
-        "', " +
-        notre_prix +
-        ', ' +
+      'UPDATE inventaire SET prix = ' +
+        prix +
+        " where codeean='" +
         codeean +
+        "';"
+    );
+  }
+
+  benchmark(codeean) {
+    return client.query('SELECT * FROM produit where codeean=' + codeean + ';');
+  }
+  create(codeean, prix, quantite) {
+    return client.query(
+      "INSERT INTO inventaire (codeean, prix, quantite) VALUES ('" +
+        codeean +
+        "', " +
+        prix +
         ', ' +
         quantite +
         ');'

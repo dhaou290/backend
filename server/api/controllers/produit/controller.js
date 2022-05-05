@@ -14,11 +14,7 @@ export class Controller {
 
   async create(req, res) {
     try {
-      const r = await ProduitService.create(
-        req.body.labelle,
-        req.body.codeEAN,
-        req.body.notre_prix
-      );
+      const r = await ProduitService.create(req.body.labelle, req.body.codeean);
       res.status(201).json(r.rowCount > 0);
     } catch (e) {
       res.status(200).json(false);

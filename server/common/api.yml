@@ -641,6 +641,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /inventaire/changePrix:
+    post:
+      tags:
+        - inventaire
+      description: Create a new inventaireChangePrix
+      requestBody:
+        description: an inventaireChangePrix
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/inventaireChangePrix'
+        required: true
+      responses:
+        201:
+          description: Return the inventaireChangePrix with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inventaireChangePrix'
+        4XX:
+          description: inventaireChangePrix not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: inventaireChangePrix not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /inventaire/{id}:
     get:
       tags:
@@ -649,6 +680,36 @@ paths:
         - name: id
           in: path
           description: The id of the inventaire to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the inventaire with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inventaire'
+        4XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /inventaire/benchmark/{codeean}:
+    get:
+      tags:
+        - inventaire
+      parameters:
+        - name: codeean
+          in: path
+          description: The codeean of the produit to retrieve
           required: true
           schema:
             type: integer
@@ -1014,15 +1075,22 @@ components:
         labelle:
           type: string
           example: labelle
-        notre_prix:
+        prix:
           type: number
           example: 98875
         quantite:
           type: number
           example: 98871
 
-
-
+    inventaireChangePrix:
+      type: object
+      properties:
+        codeean:
+          type: number
+          example: 35574
+        prix:
+          type: number
+          example: 98875
 
 
     inventaire_concurrent:
