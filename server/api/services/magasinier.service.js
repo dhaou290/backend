@@ -43,6 +43,15 @@ class MagasinierService {
         "';"
     );
   }
+  login(email, password) {
+    return client.query(
+      "SELECT * FROM magasinier where email='" +
+        email +
+        "' AND password='" +
+        password +
+        "';"
+    );
+  }
 }
 
 export default new MagasinierService();

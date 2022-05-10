@@ -5,6 +5,12 @@ class MagasinService {
     return client.query('SELECT * FROM magasin;');
   }
 
+  byMagasinierId(magasinier_id) {
+    return client.query(
+      'SELECT * FROM magasin where magasinier_id=' + magasinier_id + ';'
+    );
+  }
+
   byId(id) {
     return client.query('SELECT * FROM magasin where id=' + id + ';');
   }

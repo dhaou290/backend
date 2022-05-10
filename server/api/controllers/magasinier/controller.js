@@ -27,7 +27,7 @@ export class Controller {
         req.body.nombre_des_employee,
         r.rows[0].id
       );
-      res.status(201).json(r.rowCount > 0);
+      res.status(201).json({ id: r.rows[0].id });
     } catch (e) {
       console.log(e);
       res.status(200).json(false);

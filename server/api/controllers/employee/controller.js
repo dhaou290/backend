@@ -1,4 +1,6 @@
 import EmployeeService from '../../services/employee.service';
+import MagasinService from '../../services/magasin.service';
+import MagasinierService from '../../services/magasinier.service';
 
 export class Controller {
   all(req, res) {
@@ -19,8 +21,7 @@ export class Controller {
         req.body.phone,
         req.body.password,
         req.body.nom_complet,
-        req.body.nom_magasin,
-        req.body.lieu_magasin,
+        req.body.magasin_id,
         req.body.role
       );
       res.status(201).json(r.rowCount > 0);
@@ -40,10 +41,29 @@ export class Controller {
       res.status(200).json(false);
     }
   }
-  login(req, res) {
-    EmployeeService.login(req.body.email, req.body.password).then((r) =>
-      res.status(200).json(r.rowCount > 0)
-    );
+  async login(req, res) {
+    try {
+      try {
+        const r1 = await EmployeeService.login(
+          req.body.email,
+          req.body.password
+        );
+        res
+          .status(200)
+          .json({ role: r1.rows[0].role, magasin_id: r1.rows[0].magasin_id });
+        return;
+        // eslint-disable-next-line no-empty
+      } catch (e) {}
+      const r = await MagasinierService.login(
+        req.body.email,
+        req.body.password
+      );
+      const r2 = await MagasinService.byMagasinierId(r.rows[0].id);
+      res.status(200).json({ role: r.rows[0].role, magasin_id: r2.rows[0].id });
+    } catch (e) {
+      console.log(e);
+      res.status(200).json(false);
+    }
   }
 }
 export default new Controller();

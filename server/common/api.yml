@@ -1003,13 +1003,10 @@ components:
           example: a123s1
         nom_complet:
           type: string
-          example: amriidha
-        nom_magasin:
-          type: string
-          example: mini_prix    
-        lieu:
-          type: string
-          example: tunis
+          example: amriidha  
+        magasin_id:
+          type: number
+          example: 1
         role:
           type: string
           example: employee

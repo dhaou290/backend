@@ -2,16 +2,22 @@ import { client } from '../../config/db.config';
 
 class EmployeeService {
   all() {
-    return client.query('SELECT * FROM employee;');
+    return client.query(
+      'SELECT * FROM magasin mm INNER JOIN employee  e on mm.id=e.magasin_id;'
+    );
   }
 
   byId(id) {
-    return client.query('SELECT * FROM employee where id=' + id + ';');
+    return client.query(
+      'SELECT * FROM magasin mm INNER JOIN employee  e on mm.id=e.magasin_id where e.id=' +
+        id +
+        ';'
+    );
   }
 
-  create(email, phone, password, nom_complet, nom_magasin, lieu_magasin, role) {
+  create(email, phone, password, nom_complet, magasin_id, role) {
     return client.query(
-      "INSERT INTO employee (email, phone, password,nom_complet ,nom_magasin , lieu_magasin, role) VALUES ('" +
+      "INSERT INTO employee (email, phone, password, nom_complet, magasin_id, role) VALUES ('" +
         email +
         "', '" +
         phone +
@@ -20,9 +26,7 @@ class EmployeeService {
         "', '" +
         nom_complet +
         "', '" +
-        nom_magasin +
-        "', '" +
-        lieu_magasin +
+        magasin_id +
         "', '" +
         role +
         "');"
