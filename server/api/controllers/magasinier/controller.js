@@ -1,6 +1,8 @@
 import MagasinService from '../../services/magasin.service';
 import MagasinierService from '../../services/magasinier.service';
 
+import md5 from 'md5';
+
 export class Controller {
   all(req, res) {
     MagasinierService.all().then((r) => res.json(r.rows));
@@ -17,7 +19,7 @@ export class Controller {
       const r = await MagasinierService.create(
         req.body.email,
         req.body.phone,
-        req.body.password,
+        md5(req.body.password),
         req.body.nom_complet,
         req.body.role
       );
@@ -38,7 +40,7 @@ export class Controller {
     try {
       const r = await MagasinierService.changePassword(
         req.body.email,
-        req.body.password
+        md5(req.body.password)
       );
       res.status(201).json(r.rowCount > 0);
     } catch (e) {

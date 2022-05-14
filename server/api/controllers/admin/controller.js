@@ -1,4 +1,5 @@
 import AdminService from '../../services/admin.service';
+import md5 from 'md5';
 
 export class Controller {
   all(req, res) {
@@ -17,7 +18,7 @@ export class Controller {
       const r = await AdminService.create(
         req.body.email,
         req.body.phone,
-        req.body.password,
+        md5(req.body.password),
         req.body.nom_complet,
         req.body.role
       );
@@ -27,7 +28,7 @@ export class Controller {
     }
   }
   login(req, res) {
-    AdminService.login(req.body.email, req.body.password).then((r) =>
+    AdminService.login(req.body.email, md5(req.body.password)).then((r) =>
       res.status(200).json(r.rowCount > 0)
     );
   }
