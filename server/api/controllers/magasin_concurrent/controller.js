@@ -18,7 +18,7 @@ export class Controller {
         req.body.nom,
         req.body.lieu
       );
-      res.status(201).json(r.rowCount > 0);
+      res.status(201).json({ id: r.rows[0].id });
     } catch (e) {
       res.status(200).json(false);
     }

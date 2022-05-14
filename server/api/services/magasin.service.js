@@ -5,27 +5,24 @@ class MagasinService {
     return client.query('SELECT * FROM magasin;');
   }
 
-  byMagasinierId(magasinier_id) {
-    return client.query(
-      'SELECT * FROM magasin where magasinier_id=' + magasinier_id + ';'
-    );
-  }
-
   byId(id) {
     return client.query('SELECT * FROM magasin where id=' + id + ';');
   }
 
-  create(nom_magasin, lieu_magasin, nombre_des_employee, magasinier_id) {
-    return client.query(
-      "INSERT INTO magasin (nom_magasin, lieu_magasin, nombre_des_employee ,magasinier_id) VALUES ('" +
+  create(nom_magasin, lieu_magasin) {
+    client.query(
+      "INSERT INTO magasin (nom_magasin, lieu_magasin) VALUES ('" +
         nom_magasin +
         "', '" +
         lieu_magasin +
-        "', '" +
-        nombre_des_employee +
-        "', '" +
-        magasinier_id +
         "');"
+    );
+    return client.query(
+      "SELECT * FROM magasin where nom_magasin='" +
+        nom_magasin +
+        "' and lieu_magasin='" +
+        lieu_magasin +
+        "' ;"
     );
   }
 }

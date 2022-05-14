@@ -16,9 +16,7 @@ export class Controller {
     try {
       const r = await MagasinService.create(
         req.body.nom_magasin,
-        req.body.lieu_magasin,
-        req.body.nombre_des_employee,
-        req.body.magasinier_id
+        req.body.lieu_magasin
       );
       res.status(201).json(r.rowCount > 0);
     } catch (e) {

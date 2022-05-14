@@ -3,21 +3,21 @@ import { client } from '../../config/db.config';
 class MagasinierService {
   all() {
     return client.query(
-      'SELECT * FROM magasinier m INNER JOIN magasin mm on m.id=mm.magasinier_id ;'
+      'SELECT * FROM magasin m INNER JOIN magasinier mm on m.id=mm.magasin_id ;'
     );
   }
 
   byId(id) {
     return client.query(
-      'SELECT * FROM magasinier m INNER JOIN magasin mm on m.id=mm.magasinier_id where m.id=' +
+      'SELECT * FROM magasin m INNER JOIN magasinier mm on m.id=mm.magasin_id where mm.id=' +
         id +
         ';'
     );
   }
 
-  create(email, phone, password, nom_complet, role) {
+  create(email, phone, password, nom_complet, role, magasin_id) {
     client.query(
-      "INSERT INTO magasinier (email, phone, password, nom_complet, role) VALUES ('" +
+      "INSERT INTO magasinier (email, phone, password, nom_complet, role, magasin_id) VALUES ('" +
         email +
         "', '" +
         phone +
@@ -27,6 +27,8 @@ class MagasinierService {
         nom_complet +
         "', '" +
         role +
+        "', '" +
+        magasin_id +
         "');"
     );
     return client.query(

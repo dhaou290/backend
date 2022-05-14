@@ -12,12 +12,19 @@ class Magasin_concurrentService {
   }
 
   create(nom, lieu) {
-    return client.query(
+    client.query(
       "INSERT INTO magasin_concurrent (nom, lieu) VALUES ('" +
         nom +
         "', '" +
         lieu +
         "');"
+    );
+    return client.query(
+      "SELECT * FROM magasin_concurrent where nom='" +
+        nom +
+        "' and lieu='" +
+        lieu +
+        "';"
     );
   }
 }

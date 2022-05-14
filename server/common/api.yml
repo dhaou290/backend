@@ -1127,12 +1127,6 @@ components:
         nom_complet:
           type: string
           example: amriidhaw
-        role:
-          type: string
-          example: magasinier
-        nombre_des_employee:
-          type: number
-          example: 122
    
     magasinierPassword:
       type: object

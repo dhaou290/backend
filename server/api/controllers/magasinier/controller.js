@@ -16,20 +16,19 @@ export class Controller {
   }
   async create(req, res) {
     try {
-      const r = await MagasinierService.create(
+      const r = await MagasinService.create(
+        req.body.nom_magasin,
+        req.body.lieu_magasin
+      );
+      const r1 = await MagasinierService.create(
         req.body.email,
         req.body.phone,
         md5(req.body.password),
         req.body.nom_complet,
-        req.body.role
-      );
-      await MagasinService.create(
-        req.body.nom_magasin,
-        req.body.lieu_magasin,
-        req.body.nombre_des_employee,
+        'magasinier',
         r.rows[0].id
       );
-      res.status(201).json({ id: r.rows[0].id });
+      res.status(201).json({ id: r1.rows[0].id });
     } catch (e) {
       console.log(e);
       res.status(200).json(false);
@@ -38,11 +37,11 @@ export class Controller {
 
   async changePassword(req, res) {
     try {
-      const r = await MagasinierService.changePassword(
+      await MagasinierService.changePassword(
         req.body.email,
         md5(req.body.password)
       );
-      res.status(201).json(r.rowCount > 0);
+      res.status(201).json(true);
     } catch (e) {
       console.log(e);
       res.status(200).json(false);
