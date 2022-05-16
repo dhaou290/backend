@@ -28,7 +28,9 @@ export class Controller {
         'magasinier',
         r.rows[0].id
       );
-      res.status(201).json({ id: r1.rows[0].id });
+      res
+        .status(201)
+        .json({ id: r1.rows[0].id, magasin_id: r1.rows[0].magasin_id });
     } catch (e) {
       console.log(e);
       res.status(200).json(false);
