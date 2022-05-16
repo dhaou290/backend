@@ -1007,9 +1007,6 @@ components:
         magasin_id:
           type: number
           example: 1
-        role:
-          type: string
-          example: employee
 
 
     loginn:

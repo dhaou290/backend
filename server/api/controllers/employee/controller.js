@@ -23,7 +23,7 @@ export class Controller {
         md5(req.body.password),
         req.body.nom_complet,
         req.body.magasin_id,
-        req.body.role
+        'employee'
       );
       res.status(201).json(r.rowCount > 0);
     } catch (e) {
@@ -59,7 +59,9 @@ export class Controller {
         req.body.email,
         md5(req.body.password)
       );
-      res.status(200).json({ role: r.rows[0].role, magasin_id: r.rows[0].magasin_id });
+      res
+        .status(200)
+        .json({ role: r.rows[0].role, magasin_id: r.rows[0].magasin_id });
     } catch (e) {
       console.log(e);
       res.status(200).json(false);
