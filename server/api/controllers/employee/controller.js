@@ -1,5 +1,4 @@
 import EmployeeService from '../../services/employee.service';
-import MagasinService from '../../services/magasin.service';
 import MagasinierService from '../../services/magasinier.service';
 
 import md5 from 'md5';
@@ -60,8 +59,7 @@ export class Controller {
         req.body.email,
         md5(req.body.password)
       );
-      const r2 = await MagasinService.byMagasinierId(r.rows[0].id);
-      res.status(200).json({ role: r.rows[0].role, magasin_id: r2.rows[0].id });
+      res.status(200).json({ role: r.rows[0].role, magasin_id: r.rows[0].magasin_id });
     } catch (e) {
       console.log(e);
       res.status(200).json(false);
