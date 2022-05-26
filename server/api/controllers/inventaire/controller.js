@@ -44,12 +44,20 @@ export class Controller {
       const r = await InventaireService.create(
         req.body.codeean,
         req.body.prix,
-        req.body.quantite
+        req.body.quantite,
+        req.body.magasin_id
       );
       res.status(201).json(r.rowCount > 0);
     } catch (e) {
       res.status(200).json(false);
     }
+  }
+
+  bymagasin(req, res) {
+    InventaireService.bymagasin(req.params.id).then((r) => {
+      if (r) res.json(r.rows);
+      else res.status(404).end();
+    });
   }
 }
 export default new Controller();

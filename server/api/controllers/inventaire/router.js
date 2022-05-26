@@ -6,5 +6,6 @@ export default express
   .post('/', controller.create)
   .post('/changePrix', controller.changePrix)
   .get('/', controller.all)
+  .get('/bymagasin/:id', controller.bymagasin)
   .get('/benchmark/:codeean', controller.benchmark)
   .get('/:id', controller.byId);
