@@ -15,6 +15,13 @@ export class Controller {
     });
   }
 
+  bymagasin(req, res) {
+    EmployeeService.bymagasin(req.params.id).then((r) => {
+      if (r) res.json(r.rows);
+      else res.status(404).end();
+    });
+  }
+
   async create(req, res) {
     try {
       const r = await EmployeeService.create(

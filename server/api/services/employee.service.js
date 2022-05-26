@@ -15,6 +15,14 @@ class EmployeeService {
     );
   }
 
+  bymagasin(id) {
+    return client.query(
+      'SELECT * FROM magasin mm INNER JOIN employee  e on mm.id=e.magasin_id where e.magasin_id=' +
+        id +
+        ';'
+    );
+  }
+
   create(email, phone, password, nom_complet, magasin_id, role) {
     return client.query(
       "INSERT INTO employee (email, phone, password, nom_complet, magasin_id, role) VALUES ('" +

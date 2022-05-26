@@ -7,4 +7,5 @@ export default express
   .post('/changePassword', controller.changePassword)
   .post('/login', controller.login)
   .get('/', controller.all)
+  .get('/bymagasin/:id', controller.bymagasin)
   .get('/:id', controller.byId);

@@ -294,6 +294,36 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /employee/bymagasin/{id}:
+    get:
+      tags:
+        - employee
+      parameters:
+        - name: id
+          in: path
+          description: The id of the employee to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the employee with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/employee'
+        4XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
 
 
