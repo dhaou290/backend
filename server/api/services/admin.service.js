@@ -24,6 +24,17 @@ class AdminService {
         "');"
     );
   }
+
+  changePassword(email, password) {
+    return client.query(
+      "UPDATE admin SET password = '" +
+        password +
+        "' where email='" +
+        email +
+        "';"
+    );
+  }
+
   login(email, password) {
     return client.query(
       "SELECT * FROM admin where email='" +

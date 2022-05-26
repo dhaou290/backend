@@ -12,7 +12,18 @@ export class Controller {
       else res.status(404).end();
     });
   }
-
+  async changePassword(req, res) {
+    try {
+      const r = await AdminService.changePassword(
+        req.body.email,
+        md5(req.body.password)
+      );
+      res.status(201).json(r.rowCount > 0);
+    } catch (e) {
+      console.log(e);
+      res.status(200).json(false);
+    }
+  }
   async create(req, res) {
     try {
       const r = await AdminService.create(

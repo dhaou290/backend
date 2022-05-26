@@ -856,6 +856,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /admin/changePassword:
+    post:
+      tags:
+        - admin
+      description: Create a new adminPassword
+      requestBody:
+        description: an adminPassword
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/adminPassword'
+        required: true
+      responses:
+        201:
+          description: Return the adminPassword with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/adminPassword'
+        4XX:
+          description: adminPassword not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: adminPassword not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /magasinier/{id}:
     get:
       tags:
@@ -1165,6 +1196,15 @@ components:
           type: string
           example: xg476s
     employeePassword:
+      type: object
+      properties:
+        email:
+          type: string
+          example: aadt@gmail.com
+        password:
+          type: string
+          example: xg476s
+    adminPassword:
       type: object
       properties:
         email:
