@@ -2,16 +2,24 @@ import { client } from '../../config/db.config';
 
 class inventaireService {
   all() {
-    return client.query('SELECT * FROM inventaire;');
+    return client.query(
+      'SELECT * FROM inventaire i INNER JOIN produit p on p.codeean=cast(i.codeean as numeric);'
+    );
   }
 
   byId(id) {
-    return client.query('SELECT * FROM inventaire where id=' + id + ';');
+    return client.query(
+      'SELECT * FROM inventaire i INNER JOIN produit p on p.codeean=cast(i.codeean as numeric) where i.id=' +
+        id +
+        ';'
+    );
   }
 
   bymagasin(id) {
     return client.query(
-      'SELECT * FROM inventaire where magasin_id=' + id + ';'
+      'SELECT * FROM inventaire i INNER JOIN produit p on p.codeean=cast(i.codeean as numeric) where i.magasin_id=' +
+        id +
+        ';'
     );
   }
 
@@ -26,7 +34,11 @@ class inventaireService {
   }
 
   benchmark(codeean) {
-    return client.query('SELECT * FROM produit where codeean=' + codeean + ';');
+    return client.query(
+      'SELECT * FROM inventaire i INNER JOIN produit p on p.codeean=cast(i.codeean as numeric) where codeean=' +
+        codeean +
+        ';'
+    );
   }
   create(codeean, prix, quantite, magasin_id) {
     return client.query(

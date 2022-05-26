@@ -38,10 +38,17 @@ export class Controller {
       res.status(200).json(false);
     }
   }
-  login(req, res) {
-    AdminService.login(req.body.email, md5(req.body.password)).then((r) =>
-      res.status(200).json(r.rowCount > 0)
-    );
+  async login(req, res) {
+    try {
+      const r = await AdminService.login(
+        req.body.email,
+        md5(req.body.password)
+      );
+      res.status(200).json({ id: r.rows[0].id });
+    } catch (e) {
+      console.log(e);
+      res.status(200).json(false);
+    }
   }
   async changePhone(req, res) {
     try {
