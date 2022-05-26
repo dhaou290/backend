@@ -34,6 +34,20 @@ class AdminService {
         "';"
     );
   }
+  changePhone(email, phone) {
+    return client.query(
+      "UPDATE admin SET phone = '" + phone + "' where email='" + email + "';"
+    );
+  }
+  changenom_complet(email, nom_complet) {
+    return client.query(
+      "UPDATE admin SET nom_complet = '" +
+        nom_complet +
+        "' where email='" +
+        email +
+        "';"
+    );
+  }
 
   login(email, password) {
     return client.query(

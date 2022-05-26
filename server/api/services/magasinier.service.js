@@ -45,6 +45,26 @@ class MagasinierService {
         "';"
     );
   }
+
+  changePhone(email, phone) {
+    return client.query(
+      "UPDATE magasinier SET phone = '" +
+        phone +
+        "' where email='" +
+        email +
+        "';"
+    );
+  }
+  changenom_complet(email, nom_complet) {
+    return client.query(
+      "UPDATE magasinier SET nom_complet = '" +
+        nom_complet +
+        "' where email='" +
+        email +
+        "';"
+    );
+  }
+
   login(email, password) {
     return client.query(
       "SELECT * FROM magasinier where email='" +

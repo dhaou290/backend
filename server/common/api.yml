@@ -1015,6 +1015,98 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /employee/changePhone:
+    post:
+      tags:
+        - employee
+      description: Create a new changePhone
+      requestBody:
+        description: an changePhone
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/changePhone'
+        required: true
+      responses:
+        200:
+          description: OK
+  /employee/changeNom_complet:
+    post:
+      tags:
+        - employee
+      description: Create a new changeNom_complet
+      requestBody:
+        description: an changeNom_complet
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/changeNom_complet'
+        required: true
+      responses:
+        200:
+          description: OK
+  /magasinier/changePhone:
+    post:
+      tags:
+        - magasinier
+      description: Create a new changePhone
+      requestBody:
+        description: an changePhone
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/changePhone'
+        required: true
+      responses:
+        200:
+          description: OK
+  /magasinier/changeNom_complet:
+    post:
+      tags:
+        - magasinier
+      description: Create a new changeNom_complet
+      requestBody:
+        description: an changeNom_complet
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/changeNom_complet'
+        required: true
+      responses:
+        200:
+          description: OK
+
+  /admin/changePhone:
+    post:
+      tags:
+        - admin
+      description: Create a new changePhone
+      requestBody:
+        description: an changePhone
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/changePhone'
+        required: true
+      responses:
+        200:
+          description: OK
+  /admin/changeNom_complet:
+    post:
+      tags:
+        - admin
+      description: Create a new changeNom_complet
+      requestBody:
+        description: an changeNom_complet
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/changeNom_complet'
+        required: true
+      responses:
+        200:
+          description: OK
+
 components:
   schemas:
 
@@ -1226,6 +1318,25 @@ components:
           type: string
           example: tunisia
 
+    changePhone:
+      type: object
+      properties:
+        email:
+          type: string
+          example: aadt@gmail.com
+        phone:
+          type: string
+          example: xg476s
+
+    changeNom_complet:
+      type: object
+      properties:
+        email:
+          type: string
+          example: aadt@gmail.com
+        nom_complet:
+          type: string
+          example: xg476s
 
     Error:
       type: object

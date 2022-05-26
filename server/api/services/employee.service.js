@@ -49,7 +49,20 @@ class EmployeeService {
         "';"
     );
   }
-
+  changePhone(email, phone) {
+    return client.query(
+      "UPDATE employee SET phone = '" + phone + "' where email='" + email + "';"
+    );
+  }
+  changenom_complet(email, nom_complet) {
+    return client.query(
+      "UPDATE employee SET nom_complet = '" +
+        nom_complet +
+        "' where email='" +
+        email +
+        "';"
+    );
+  }
   login(email, password) {
     return client.query(
       "SELECT * FROM employee where email='" +

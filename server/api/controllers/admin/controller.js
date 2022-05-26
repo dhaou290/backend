@@ -43,5 +43,26 @@ export class Controller {
       res.status(200).json(r.rowCount > 0)
     );
   }
+  async changePhone(req, res) {
+    try {
+      await AdminService.changePhone(req.body.email, req.body.phone);
+      res.status(201).json(true);
+    } catch (e) {
+      console.log(e);
+      res.status(200).json(false);
+    }
+  }
+  async changenome(req, res) {
+    try {
+      await AdminService.changenom_complet(
+        req.body.email,
+        req.body.nom_complet
+      );
+      res.status(201).json(true);
+    } catch (e) {
+      console.log(e);
+      res.status(200).json(false);
+    }
+  }
 }
 export default new Controller();
