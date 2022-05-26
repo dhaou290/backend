@@ -70,5 +70,14 @@ export class Controller {
       res.status(200).json(false);
     }
   }
+  async delete(req, res) {
+    try {
+      await MagasinierService.delete(req.params.id);
+      res.status(201).json(true);
+    } catch (e) {
+      console.log(e);
+      res.status(200).json(false);
+    }
+  }
 }
 export default new Controller();

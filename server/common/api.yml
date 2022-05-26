@@ -782,6 +782,34 @@ paths:
 
 
 
+  /employee/delete/{id}:
+    delete:
+      tags:
+        - employee
+      parameters:
+        - name: id
+          in: path
+          description: The id of the magasinier to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: trouver tous les magasinier
+  /magasinier/delete/{id}:
+    delete:
+      tags:
+        - magasinier
+      parameters:
+        - name: id
+          in: path
+          description: The id of the magasinier to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: trouver tous les magasinier
 
   /magasinier:
     get:

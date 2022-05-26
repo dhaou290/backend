@@ -7,6 +7,7 @@ export default express
   .post('/changePassword', controller.changePassword)
   .post('/changePhone', controller.changePhone)
   .post('/changeNom_complet', controller.changenome)
+  .delete('/delete/:id', controller.delete)
   .post('/login', controller.login)
   .get('/', controller.all)
   .get('/bymagasin/:id', controller.bymagasin)

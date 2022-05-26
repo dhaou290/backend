@@ -64,7 +64,9 @@ class MagasinierService {
         "';"
     );
   }
-
+  delete(id) {
+    return client.query('DELETE from magasinier where id=' + id + '  ;');
+  }
   login(email, password) {
     return client.query(
       "SELECT * FROM magasinier where email='" +

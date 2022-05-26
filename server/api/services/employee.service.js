@@ -54,6 +54,9 @@ class EmployeeService {
       "UPDATE employee SET phone = '" + phone + "' where email='" + email + "';"
     );
   }
+  delete(id) {
+    return client.query('DELETE from employee where id=' + id + '  ;');
+  }
   changenom_complet(email, nom_complet) {
     return client.query(
       "UPDATE employee SET nom_complet = '" +
