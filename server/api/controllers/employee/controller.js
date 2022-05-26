@@ -85,8 +85,8 @@ export class Controller {
   }
   async delete(req, res) {
     try {
-      await EmployeeService.delete(req.params.id);
-      res.status(201).json(true);
+      const r = await EmployeeService.delete(req.params.id);
+      res.status(201).json(r.rowCount > 0);
     } catch (e) {
       console.log(e);
       res.status(200).json(false);
