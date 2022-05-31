@@ -1224,9 +1224,7 @@ components:
         labelle:
           type: string
           example: labelle
-        notre_prix:
-          type: number
-          example: 9887
+
 
 
 

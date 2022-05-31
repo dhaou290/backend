@@ -1,5 +1,6 @@
 import EmployeeService from '../../services/employee.service';
 import MagasinierService from '../../services/magasinier.service';
+import AdminService from '../../services/admin.service';
 
 import md5 from 'md5';
 
@@ -17,6 +18,13 @@ export class Controller {
 
   bymagasin(req, res) {
     EmployeeService.bymagasin(req.params.id).then((r) => {
+      if (r) res.json(r.rows);
+      else res.status(404).end();
+    });
+  }
+
+  byadmin(req, res) {
+    EmployeeService.byadmin(req.params.id).then((r) => {
       if (r) res.json(r.rows);
       else res.status(404).end();
     });
@@ -50,6 +58,7 @@ export class Controller {
     }
   }
   async login(req, res) {
+    try{
     try {
       try {
         const r1 = await EmployeeService.login(
@@ -58,7 +67,7 @@ export class Controller {
         );
         res
           .status(200)
-          .json({ role: r1.rows[0].role, magasin_id: r1.rows[0].magasin_id });
+          .json({ role: r1.rows[0].role, magasin_id: r1.rows[0].magasin_id, email: r1.rows[0].email  });
         return;
         // eslint-disable-next-line no-empty
       } catch (e) {}
@@ -68,12 +77,23 @@ export class Controller {
       );
       res
         .status(200)
-        .json({ role: r.rows[0].role, magasin_id: r.rows[0].magasin_id });
+        .json({ role: r.rows[0].role, magasin_id: r.rows[0].magasin_id, email: r.rows[0].email });
+    } catch (e) {}
+        const r3 = await AdminService.login(
+          req.body.email,
+          md5(req.body.password)
+        );
+        res
+          .status(200)
+          .json({ role: r3.rows[0].role,admin_id: r3.rows[0].id, email: r3.rows[0].email });
+    
     } catch (e) {
       console.log(e);
       res.status(200).json(false);
     }
   }
+
+
   async changePhone(req, res) {
     try {
       await EmployeeService.changePhone(req.body.email, req.body.phone);

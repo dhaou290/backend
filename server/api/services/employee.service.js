@@ -23,6 +23,14 @@ class EmployeeService {
     );
   }
 
+  byadmin(id) {
+    return client.query(
+      'SELECT * FROM admin mm INNER JOIN employee  e on mm.id=e.admin_id where e.admin_id=' +
+        id +
+        ';'
+    );
+  }
+
   create(email, phone, password, nom_complet, magasin_id, role) {
     return client.query(
       "INSERT INTO employee (email, phone, password, nom_complet, magasin_id, role) VALUES ('" +
