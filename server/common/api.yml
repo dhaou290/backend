@@ -1218,7 +1218,7 @@ components:
     produit:
       type: object
       properties:
-        codeEAN:
+        codeean:
           type: number
           example: 35553
         labelle:

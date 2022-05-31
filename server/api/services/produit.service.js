@@ -13,8 +13,7 @@ class ProduitService {
     return client.query(
       "INSERT INTO produit (labelle, codeean) VALUES ('" +
         labelle +
-        "', " +
-        codeean +
+        "', " + codeean +
         ');'
     );
   }
