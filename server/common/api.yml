@@ -525,6 +525,37 @@ paths:
                 schema:
                   $ref: '#/components/schemas/Error'
 
+  /magasin/byadmin/{id}:
+    get:
+      tags:
+        - magasin
+      parameters:
+        - name: id
+          in: path
+          description: The id of the magasin to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the magasin with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/magasin'
+        4XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'                
+
 
 
 
@@ -1244,6 +1275,9 @@ components:
         magasinier_id:
           type: number
           example: 20
+        admin_id:
+          type: number
+          example: 1
 
 
 

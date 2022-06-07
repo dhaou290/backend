@@ -16,12 +16,19 @@ export class Controller {
     try {
       const r = await MagasinService.create(
         req.body.nom_magasin,
-        req.body.lieu_magasin
+        req.body.lieu_magasin,
+        req.body.admin_id
       );
       res.status(201).json(r.rowCount > 0);
     } catch (e) {
       res.status(200).json(false);
     }
+  }
+  byadmin(req, res) {
+    MagasinService.byadmin(req.params.id).then((r) => {
+      if (r) res.json(r.rows);
+      else res.status(404).end();
+    });
   }
 }
 export default new Controller();

@@ -5,4 +5,5 @@ export default express
   .Router()
   .post('/', controller.create)
   .get('/', controller.all)
+  .get('/byadmin/:id', controller.byadmin)
   .get('/:id', controller.byId);
