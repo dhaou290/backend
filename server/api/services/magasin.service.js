@@ -10,11 +10,7 @@ class MagasinService {
   }
 
   byadmin(id) {
-    return client.query(
-      'SELECT * FROM admin mm INNER JOIN magasin  e on mm.id=e.admin_id where e.admin_id=' +
-        id +
-        ';'
-    );
+    return client.query('SELECT * FROM magasin where admin_id=' + id + ';');
   }
   create(nom_magasin, lieu_magasin, admin_id) {
     client.query(
