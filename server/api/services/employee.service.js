@@ -32,7 +32,7 @@ class EmployeeService {
   }
 
   create(email, phone, password, nom_complet, magasin_id, role) {
-    return client.query(
+    client.query(
       "INSERT INTO employee (email, phone, password, nom_complet, magasin_id, role) VALUES ('" +
         email +
         "', '" +
@@ -47,6 +47,7 @@ class EmployeeService {
         role +
         "');"
     );
+    return client.query("SELECT * FROM employee where email='" + email + "';");
   }
   changePassword(email, password) {
     return client.query(

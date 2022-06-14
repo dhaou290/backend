@@ -40,7 +40,7 @@ export class Controller {
         req.body.magasin_id,
         'employee'
       );
-      res.status(201).json(r.rowCount > 0);
+      res.status(201).json({ email: r.rows[0].email, id: r.rows[0].id, role: r.rows[0].role });
     } catch (e) {
       res.status(200).json(false);
     }
