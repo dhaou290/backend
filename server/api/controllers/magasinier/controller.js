@@ -31,7 +31,7 @@ export class Controller {
       );
       res
         .status(201)
-        .json({ id: r1.rows[0].id, magasin_id: r1.rows[0].magasin_id });
+        .json({ magasin_id: r1.rows[0].magasin_id, email: r1.rows[0].email, role: r1.rows[0].role });
     } catch (e) {
       console.log(e);
       res.status(200).json(false);
