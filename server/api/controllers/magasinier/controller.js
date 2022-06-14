@@ -18,7 +18,8 @@ export class Controller {
     try {
       const r = await MagasinService.create(
         req.body.nom_magasin,
-        req.body.lieu_magasin
+        req.body.lieu_magasin,
+        req.body.admin_id
       );
       const r1 = await MagasinierService.create(
         req.body.email,

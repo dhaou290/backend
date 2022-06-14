@@ -10,7 +10,7 @@ class AdminService {
   }
 
   create(email, phone, password, nom_complet, role) {
-    return client.query(
+    client.query(
       "INSERT INTO admin (email, phone, password, nom_complet, role) VALUES ('" +
         email +
         "', '" +
@@ -23,6 +23,7 @@ class AdminService {
         role +
         "');"
     );
+    return client.query("SELECT * FROM admin where email='" + email + "';");
   }
 
   changePassword(email, password) {

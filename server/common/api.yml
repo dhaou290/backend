@@ -1269,12 +1269,6 @@ components:
         lieu_magasin:
           type: string
           example: sousse
-        nombre_des_employee:
-          type: number
-          example: 122
-        magasinier_id:
-          type: number
-          example: 20
         admin_id:
           type: number
           example: 1
@@ -1342,6 +1336,9 @@ components:
         lieu_magasin:
           type: string
           example: tunis
+        admin_id:
+          type: number
+          example: 1
         email:
           type: string
           example: aadt@gmail.com

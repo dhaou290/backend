@@ -33,8 +33,9 @@ export class Controller {
         req.body.nom_complet,
         req.body.role
       );
-      res.status(201).json(r.rowCount > 0);
+      res.status(201).json({ email: r.rows[0].email, id: r.rows[0].id, role: r.rows[0].role });
     } catch (e) {
+      console.log(e);
       res.status(200).json(false);
     }
   }
@@ -44,7 +45,7 @@ export class Controller {
         req.body.email,
         md5(req.body.password)
       );
-      res.status(200).json({ id: r.rows[0].id });
+      res.status(201).json({ id: r.rows[0].id });
     } catch (e) {
       console.log(e);
       res.status(200).json(false);
