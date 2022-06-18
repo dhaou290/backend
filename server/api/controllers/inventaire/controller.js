@@ -17,6 +17,7 @@ export class Controller {
     try {
       const r = await InventaireService.changePrix(
         req.body.codeean,
+        req.body.magasin_id,
         req.body.prix
       );
       res.status(201).json(r.rowCount > 0);

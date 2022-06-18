@@ -23,10 +23,12 @@ class inventaireService {
     );
   }
 
-  changePrix(codeean, prix) {
+  changePrix(codeean, magasin_id, prix) {
     return client.query(
       'UPDATE inventaire SET prix = ' +
         prix +
+        " where magasin_id='" +
+        magasin_id +
         " where codeean='" +
         codeean +
         "';"
