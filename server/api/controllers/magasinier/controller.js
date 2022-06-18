@@ -6,7 +6,7 @@ import md5 from 'md5';
 export class Controller {
   all(req, res) {
     MagasinierService.all().then((r) => res.json(r.rows));
-  }
+
 
   byId(req, res) {
     MagasinierService.byId(req.params.id).then((r) => {
@@ -31,7 +31,10 @@ export class Controller {
       );
       res
         .status(201)
-        .json({ magasin_id: r1.rows[0].magasin_id, email: r1.rows[0].email, role: r1.rows[0].role });
+        .json({ magasin_id: r1.rows[0].magasin_id,
+          email: r1.rows[0].email,
+          role: r1.rows[0].role,
+        });
     } catch (e) {
       console.log(e);
       res.status(200).json(false);
