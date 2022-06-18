@@ -14,10 +14,14 @@ export class Controller {
 
   create(req, res) {
     Inventaire_concurrentService.create(
-      req.body.ean,
+      req.body.codeean,
       req.body.libellé_du_produit,
-      req.body.prix
-    ).then((r) => res.status(201).json(r.rowCount));
+      req.body.prix,
+      req.body.id_magasin_concurrent
+    ).then((r) => {
+      if (r) res.status(201).json(r.rowCount > 0);
+      else false;
+    });
   }
 }
 export default new Controller();

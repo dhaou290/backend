@@ -15,6 +15,14 @@ class MagasinierService {
     );
   }
 
+  bymagasin(id) {
+    return client.query(
+      'SELECT * FROM magasin mm INNER JOIN magasinier  e on mm.id=e.magasin_id where e.magasin_id=' +
+        id +
+        ';'
+    );
+  }
+
   create(email, phone, password, nom_complet, role, magasin_id) {
     client.query(
       "INSERT INTO magasinier (email, phone, password, nom_complet, role, magasin_id) VALUES ('" +

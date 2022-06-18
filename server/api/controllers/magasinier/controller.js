@@ -8,13 +8,20 @@ export class Controller {
     MagasinierService.all().then((r) => res.json(r.rows));
   }
 
-
   byId(req, res) {
     MagasinierService.byId(req.params.id).then((r) => {
       if (r) res.json(r.rows);
       else res.status(404).end();
     });
   }
+
+  bymagasin(req, res) {
+    MagasinierService.bymagasin(req.params.id).then((r) => {
+      if (r) res.json(r.rows);
+      else res.status(404).end();
+    });
+  }
+
   async create(req, res) {
     try {
       const r = await MagasinService.create(
@@ -30,18 +37,37 @@ export class Controller {
         'magasinier',
         r.rows[0].id
       );
-      res
-        .status(201)
-        .json({ magasin_id: r1.rows[0].magasin_id,
-          email: r1.rows[0].email,
-          role: r1.rows[0].role,
-        });
+      res.status(201).json({
+        magasin_id: r1.rows[0].magasin_id,
+        email: r1.rows[0].email,
+        role: r1.rows[0].role,
+      });
     } catch (e) {
       console.log(e);
       res.status(200).json(false);
     }
   }
 
+  async createbymagasinid(req, res) {
+    try {
+      const r1 = await MagasinierService.create(
+        req.body.email,
+        req.body.phone,
+        md5(req.body.password),
+        req.body.nom_complet,
+        'magasinier',
+        req.body.magasin_id
+      );
+      res.status(201).json({
+        magasin_id: r1.rows[0].magasin_id,
+        email: r1.rows[0].email,
+        role: r1.rows[0].role,
+      });
+    } catch (e) {
+      console.log(e);
+      res.status(200).json(false);
+    }
+  }
 
   async changePassword(req, res) {
     try {

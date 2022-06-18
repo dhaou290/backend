@@ -28,7 +28,7 @@ export class Controller {
   }
   async benchmark(req, res) {
     try {
-      const r = await InventaireService.benchmark(req.params.codeean);
+      const r = await InventaireService.benchmark(req.body.codeean);
       res.json(r.rows);
     } catch (e) {
       console.log(e);

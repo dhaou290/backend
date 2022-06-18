@@ -11,14 +11,16 @@ class Inventaire_concurrentService {
     );
   }
 
-  create(ean, libellé_du_produit, prix) {
+  create(codeean, libellé_du_produit, prix, id_magasin_concurrent) {
     return client.query(
-      "INSERT INTO inventaire_concurrent (ean, libellé_du_produit, prix) VALUES ('" +
-        ean +
+      "INSERT INTO inventaire_concurrent (codeean, libellé_du_produit, prix, id_magasin_concurrent) VALUES ('" +
+        codeean +
         "', '" +
         libellé_du_produit +
         "', '" +
         prix +
+        "','" +
+        id_magasin_concurrent +
         "');"
     );
   }

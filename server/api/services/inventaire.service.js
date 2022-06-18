@@ -27,19 +27,19 @@ class inventaireService {
     return client.query(
       'UPDATE inventaire SET prix = ' +
         prix +
-        " where magasin_id='" +
-        magasin_id +
         " where codeean='" +
         codeean +
+        "' and magasin_id='" +
+        magasin_id +
         "';"
     );
   }
 
   benchmark(codeean) {
     return client.query(
-      'SELECT * FROM inventaire i INNER JOIN produit p on p.codeean=cast(i.codeean as numeric) where codeean=' +
+      "SELECT * FROM inventaire i INNER JOIN produit p on p.codeean=cast(i.codeean as numeric) where i.codeean='" +
         codeean +
-        ';'
+        "' ;"
     );
   }
   create(codeean, prix, quantite, magasin_id) {

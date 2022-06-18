@@ -308,6 +308,7 @@ paths:
       responses:
         200:
           description: OK
+        
   /employee/bymagasin/{id}:
     get:
       tags:
@@ -806,37 +807,38 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /inventaire/benchmark/{codeean}:
-    get:
+
+  /inventaire/benchmark:
+    post:
       tags:
         - inventaire
-      parameters:
-        - name: codeean
-          in: path
-          description: The codeean of the produit to retrieve
-          required: true
-          schema:
-            type: integer
+      description: benchmarking
+      requestBody:
+        description: benchmarking
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/benchmark'
+        required: true
       responses:
-        200:
-          description: Return the inventaire with the specified id
+        201:
+          description: Return the benchmark with the specified id
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inventaire'
+                $ref: '#/components/schemas/benchmark'
         4XX:
-          description: Example not found
+          description: benchmark not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
         5XX:
-          description: Example not found
+          description: benchmark not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
 
 
 
@@ -972,6 +974,42 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+
+
+  
+  /magasinier/magasinierbymagasin:
+    post:
+      tags:
+        - magasinier
+      description: Create a new magasinier & magasin
+      requestBody:
+        description: an magasinier
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/magasinierbymagasin'
+        required: true
+      responses:
+        201:
+          description: Return the magasinier with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/magasinierbymagasin'
+        4XX:
+          description: magasinier not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: magasinier not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+                
   /admin/changePassword:
     post:
       tags:
@@ -1288,6 +1326,13 @@ components:
           type: string
           example: mdg5778gy         
 
+    benchmark:
+      type: object
+      properties:
+        codeean:
+          type: number
+          example: 35574
+
 
     employee:
       type: object
@@ -1383,12 +1428,15 @@ components:
         prix:
           type: number
           example: 98875
+        magasin_id:
+          type: number
+          example: 1
 
 
     inventaire_concurrent:
       type: object
       properties:
-        ean:
+        codeean:
           type: string
           example: ean
         libelle_du_produit:
@@ -1396,8 +1444,11 @@ components:
           example: libellé
         prix:
           type: number
-          example: 10.2
-
+          example: 10
+        id_magasin_concurrent:
+          type: number
+          example: 2
+          
 
 
 
@@ -1425,7 +1476,28 @@ components:
         nom_complet:
           type: string
           example: amriidhaw
-   
+
+    magasinierbymagasin:
+      type: object
+      properties:
+        magasin_id:
+          type: number
+          example: 1
+        admin_id:
+          type: number
+          example: 1
+        email:
+          type: string
+          example: aadt@gmail.com
+        phone:
+          type: string
+          example: "+21629012"
+        password:
+          type: string
+          example: xg476s
+        nom_complet:
+          type: string
+          example: amriidhaw
     magasinierPassword:
       type: object
       properties:
