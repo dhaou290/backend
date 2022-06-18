@@ -30,6 +30,29 @@ class MagasinService {
         "' ;"
     );
   }
+  delete(id) {
+    return client.query('DELETE from magasin where id=' + id + '  ;');
+  }
+
+  changenom_magasin(nom_magasin, magasin_id) {
+    return client.query(
+      "UPDATE magasin SET nom_magasin = '" +
+        nom_magasin +
+        "' where id='" +
+        magasin_id +
+        "';"
+    );
+  }
+
+  changelieu_magasin(lieu_magasin, magasin_id) {
+    return client.query(
+      "UPDATE magasin SET lieu_magasin = '" +
+        lieu_magasin +
+        "' where id='" +
+        magasin_id +
+        "';"
+    );
+  }
 }
 
 export default new MagasinService();

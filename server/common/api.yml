@@ -339,7 +339,36 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-
+  /magasinier/bymagasin/{id}:
+    get:
+      tags:
+        - magasinier
+      parameters:
+        - name: id
+          in: path
+          description: The id of the magasinier to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Return the magasinier with the specified id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/magasinier'
+        4XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Example not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
 
   /produit:
@@ -841,7 +870,20 @@ paths:
       responses:
         200:
           description: trouver tous les magasinier
-
+  /magasin/delete/{id}:
+    delete:
+      tags:
+        - magasin
+      parameters:
+        - name: id
+          in: path
+          description: The id of the magasin to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: trouver tous les magasin
   /magasinier:
     get:
       tags:
@@ -898,6 +940,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+
   /magasinier/changePassword:
     post:
       tags:
@@ -1114,6 +1157,37 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/changeNom_complet'
+        required: true
+      responses:
+        200:
+          description: OK
+  /magasin/changenom_magasin:
+    post:
+      tags:
+        - magasin
+      description: Create a new changenom_magasin
+      requestBody:
+        description: an changenom_magasin
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/changenom_magasin'
+        required: true
+      responses:
+        200:
+          description: OK
+
+  /magasin/changelieu_magasin:
+    post:
+      tags:
+        - magasin
+      description: Create a new changelieu_magasin
+      requestBody:
+        description: an changelieu_magasin
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/changelieu_magasin'
         required: true
       responses:
         200:
@@ -1411,6 +1485,29 @@ components:
         nom_complet:
           type: string
           example: xg476s
+
+
+    changenom_magasin:
+      type: object
+      properties:
+        nom_magasin:
+          type: string
+          example: wasla
+        magasin_id:
+          type: number
+          example: 2
+
+
+
+    changelieu_magasin:
+      type: object
+      properties:
+        lieu_magasin:
+          type: string
+          example: bizerte
+        magasin_id:
+          type: number
+          example: 1
 
     Error:
       type: object

@@ -6,6 +6,7 @@ import md5 from 'md5';
 export class Controller {
   all(req, res) {
     MagasinierService.all().then((r) => res.json(r.rows));
+  }
 
 
   byId(req, res) {
@@ -40,6 +41,7 @@ export class Controller {
       res.status(200).json(false);
     }
   }
+
 
   async changePassword(req, res) {
     try {
